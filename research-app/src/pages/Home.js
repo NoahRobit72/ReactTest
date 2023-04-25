@@ -12,7 +12,7 @@ export default function Home() {
         <div className="button-div">
             <Link className="link-button" to="/LabsBU">BU</Link>
             <Link className="link-button" to="/LabsMIT">MIT</Link>
-            <Link className="link-button" to="/LabsNU">NU</Link>
+            <Link className="link-button" to="/LabsNU">NU</Link>            
         </div>
     </div>
     )
