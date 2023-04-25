@@ -1,0 +1,40 @@
+{
+  "__collections__": {
+    "boston university ": {
+      "RAJEN": {
+        "Type": "BIO",
+        "Rating": "4.0",
+        "__collections__": {}
+      },
+      "SONG Lab ": {
+        "Rating ": 3.8,
+        "Type ": "CE",
+        "__collections__": {}
+      },
+      "nia lab": {
+        "Type": "BME",
+        "Rating": 5,
+        "__collections__": {
+          "reviews ": {
+            "User2": {
+              "__collections__": {}
+            },
+            "User_name ": {
+              "rating ": 5,
+              "Reccommend ": true,
+              "Date": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1681686333,
+                  "_nanoseconds": 397000000
+                }
+              },
+              "comments ": "good lab ",
+              "__collections__": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
