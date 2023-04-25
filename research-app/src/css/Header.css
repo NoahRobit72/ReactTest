@@ -1,0 +1,12 @@
+header {
+    background-color: rgb(119, 116, 116);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: left;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    
+  }
