@@ -1,9 +1,8 @@
 
-  
   header {
     background-color: rgb(119, 116, 116);
     color: rgb(255, 255, 255);
-    height: 90px;
+    height: 75px;
     display: flex;
     align-items: center;
 }
