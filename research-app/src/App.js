@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
+import LabInformation from './pages/LabInformation';
 import LabsBU from "./pages/LabsBU"
 import LabsMIT from "./pages/LabsMIT"
 import LabsNU from "./pages/LabsNU"
@@ -16,6 +17,9 @@ function App() {
         <Route path="/LabsMIT" element={<LabsMIT />} />
         <Route path="/LabsNU" element={<LabsNU />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/LabInformation" element={<LabInformation />} />
+
+
 
 
       </Routes>
