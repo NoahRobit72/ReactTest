@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
-import LabsBU from "./pages/LabPages/LabsBU"
-import LabsMIT from "./pages/LabPages/LabsMIT"
-import LabsNU from "./pages/LabPages/LabsNU"
+import LabsBU from "./pages/LabsBU"
+import LabsMIT from "./pages/LabsMIT"
+import LabsNU from "./pages/LabsNU"
 import LoginPage from "./pages/LoginPage"
 
 

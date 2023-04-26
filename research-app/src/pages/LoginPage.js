@@ -1,9 +1,21 @@
 import React from "react"
 
 export default function LabsBU() {
+    const [firstName, setFirstName] = React.useState("")
+
+    console.log(firstName)
+
+    function handleChange(event) {
+        setFirstName(event.targer.value);
+    }
+
     return (
-        <div>
-            <h2>This is a login page</h2>
-        </div>
-    );
+    <form>
+        <input
+            type="text"
+            placeholder="First Name"
+            onChange = {handleChange}
+        />
+    </form>
+    )
 }
