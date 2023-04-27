@@ -1,0 +1,18 @@
+.Lab-Blocks{
+    width: 75%;
+    border: 5px solid gray;
+    padding: 10px;
+    margin: 20px;
+}
+
+.SchoolHeader{
+    margin-left: 10px;
+}
+
+.Linked-Block{
+    border: none;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+}
+

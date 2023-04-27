@@ -1,0 +1,10 @@
+.LabHeader{
+    margin-left: 20px;
+}
+
+.reviews-tile{
+    width: 75%;
+    border: 5px solid gray;
+    padding: 10px;
+    margin: 20px;
+}
