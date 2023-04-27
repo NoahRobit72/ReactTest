@@ -4,7 +4,7 @@ import Home from "./pages/Home"
 import LabReviews from './pages/LabReviews';
 import LabsBU from "./pages/LabPages/LabsBU"
 import LabsMIT from "./pages/LabPages/LabsMIT"
-import LoginPage from "./pages/LoginPage"
+import LoginPage from "./pages/LoginPages/LoginPage"
 import LabsNU from './pages/LabPages/LabsNU';
 
 
