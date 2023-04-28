@@ -2,7 +2,7 @@ import React from "react"
 import "../../css/LoginPage.css"
 
 
-export default function LabsBU() {
+export function LabsBU() {
     const [formData, setFormData] = React.useState({
         firstName: "", lastName: "", email: "", password: "", password2: ""
     })
