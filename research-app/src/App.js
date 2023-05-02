@@ -7,6 +7,8 @@ import LabsMIT from "./pages/LabPages/LabsMIT"
 import LabsNU from './pages/LabPages/LabsNU';
 import { LoginPage } from './pages/LoginPages/LoginPage';
 import HomeLoggedIn from './pages/HomeLoggedIn';
+import { ReviewInput } from './pages/ReviewInput';
+import { LoginSignup } from './pages/LoginPages/LoginSignup';
 
 
 
@@ -21,6 +23,8 @@ function App() {
         <Route path="/LabsNU" element={<LabsNU />} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/LabsBU/:id" element={<LabReviews/>} />
+        <Route path="/ReviewInput" element={<ReviewInput/>} />
+        <Route path="/signup" element={<LoginSignup/>} />
 
       </Routes>
     </BrowserRouter>

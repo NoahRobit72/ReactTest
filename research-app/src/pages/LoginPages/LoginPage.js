@@ -1,19 +1,18 @@
 import React from "react"
 import "../../css/LoginPage.css"
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 
 
 export function LoginPage() {
 
     const [formData, setFormData] = useState({
+        name: "",
         email: "",
-        firstName: "",
-        password: "",
-        password2: "",
+        password: ""
     })
 
-    const [showError, setShowError] = useState(false); // initialize state for error message
     const navigate = useNavigate(false);
 
 
@@ -30,17 +29,8 @@ export function LoginPage() {
     // On submit send this value to the firebase login 
     function handleSubmit(event) {
         event.preventDefault()
-        if((formData.password === formData.password2) && (formData.password !== "")){
-            console.log("user submitted")
-            setShowError(false);
-            var sendString = "/" + formData.firstName
-            navigate(sendString);
-
-        }
-        else{
-            console.log("user not submitted")   
-            setShowError(true);
-        }
+        var sendString = "/" + formData.name
+        navigate(sendString);   
     }
 
     return (
@@ -48,12 +38,12 @@ export function LoginPage() {
         <h2>Login</h2>
     <div className="formLogin">
         <form onSubmit={handleSubmit}>
-            <input
+        <input
                 type="text"
-                placeholder="First name"
+                placeholder="Name - do be deleted"
                 onChange = {handleChange}
-                name="firstName"
-                value={formData.firstName}
+                name="name"
+                value={formData.name}
             />
             <input
                 type="text"
@@ -69,16 +59,9 @@ export function LoginPage() {
                 name="password"
                 value={formData.password}
             />
-            <input
-                type="password"
-                placeholder="Confirm password"
-                onChange = {handleChange}
-                name="password2"
-                value={formData.password2}
-            />
-            <button>Submit</button>
-            {showError && <p>Passwords do not match. Please try again.</p>}
-
+            <button>Sign in</button>
+            <br></br>
+            <Link className="signUp" to="/signup">Not yet registered? Sign up</Link>
         </form>
     </div>
     </div>

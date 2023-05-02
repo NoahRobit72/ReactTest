@@ -5,11 +5,22 @@ input {
     border: 1px solid #444;
     border-radius: 5px;
     display: block;
+    justify-content: center;
+
   }
   
+  .signUp {
+    text-align:center;
+    padding-bottom: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
   .formLogin {
     padding-top: 20px;
-    padding-left: 20px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     border: 1px solid #444;
@@ -28,7 +39,7 @@ input {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    margin-bottom: .5in;
+    text-align: center;
   }
 
   h2{
@@ -39,8 +50,7 @@ p{
     text-align:center;
 }
 
-button{
-    justify-content: center;
 
-}
+
+
   
