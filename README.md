@@ -5,6 +5,9 @@
 
 ![hello](Extras/Homepage.png)  
 
+### How to Use
+To use the website, all you have to do is click here [ResearchRatings.com](https://storied-syrniki-9241c1.netlify.app/). There are no prerequisites.
+
 
 ## Overview
 This is a web platform designed to help undergraduate students find and review research programs at their universities. The website aims to be a combination of "Rate My Professor" and "Glassdoor" for undergraduate research programs, allowing students to read and write reviews of research programs at their universities.
@@ -19,13 +22,11 @@ Users can read reviews of research programs left by other students, and they can
 ### Program Ratings
 Research programs are rated on a scale of 1-5 stars, based on the average rating of all the reviews left for the program.
 
-### User Profiles
-Users can create profiles on the website, which allows them to leave reviews, save programs to their favorites list, and connect with other students who have similar research interests.
+<!-- ### User Profiles
+Users can create profiles on the website, which allows them to leave reviews, save programs to their favorites list, and connect with other students who have similar research interests. -->
 
-### Discussion Forums
-Users can also participate in discussion forums related to undergraduate research programs, where they can ask questions, share their experiences, and connect with other students who are interested in research.
+<!-- ### Discussion Forums
+Users can also participate in discussion forums related to undergraduate research programs, where they can ask questions, share their experiences, and connect with other students who are interested in research. -->
 
-### How to Use
-To use the website, simply create a user profile or log in using an existing account. From there, you can search for research programs, read reviews, and leave your own review of a program you have participated in.
 
-If you have any questions or feedback about the website, please contact us through the website's contact page.
+
