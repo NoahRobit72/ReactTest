@@ -10,7 +10,8 @@ To use the website, all you have to do is click here [ResearchRatings.com](https
 
 
 ## Overview
-This is a web platform designed to help undergraduate students find and review research programs at their universities.   
+This is a web platform designed to help undergraduate students find and review research programs at their universities.  
+  
 The website aims to be a combination of "Rate My Professor" and "Glassdoor" for undergraduate research programs, allowing students to read and write reviews of research programs at their universities.
 
 ## Features
@@ -19,6 +20,7 @@ Users can search for research programs based on a variety of criteria, including
 
 ### Program Reviews
 Users can read reviews of research programs left by other students, and they can also leave their own reviews.   
+  
 Reviews can include information such as the quality of the research facilities, the mentorship provided by faculty, the level of support and resources available to students, and the overall experience of participating in the program.
 
 ### Program Ratings
