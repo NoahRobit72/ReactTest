@@ -4,8 +4,8 @@ import Home from "./pages/Home"
 import LabReviews from './pages/LabReviews';
 import LabsBU from "./pages/LabPages/LabsBU"
 import LabsMIT from "./pages/LabPages/LabsMIT"
-import FirebaseLogin2 from "./pages/LoginPages/FirebaseLogin2"
 import LabsNU from './pages/LabPages/LabsNU';
+import { LoginPage } from './pages/LoginPages/LoginPage';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/LabsBU" element={<LabsBU />} />
         <Route path="/LabsMIT" element={<LabsMIT />} />
         <Route path="/LabsNU" element={<LabsNU />} />
-        <Route path="/login" element={<FirebaseLogin2/>} />
+        <Route path="/login" element={<LoginPage/>} />
         <Route path="/LabsBU/:id" element={<LabReviews/>} />
 
       </Routes>

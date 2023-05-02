@@ -1,7 +1,9 @@
 import React from "react"
+import { useEffect } from 'react';
 import { Link } from "react-router-dom"
 
 import HeaderSchool from "../../components/HeaderSchool"
+import exportCollectionToJSON from "../../BackEnd/Lab_json_return"
 import "../../css/LabPages.css"
 
 
@@ -31,8 +33,17 @@ function LabsBU() {
           <p>Kind: {lab.kind}</p>
         </Link>
       </div>
-    
-))
+  ))
+
+  useEffect(() => {
+    exportCollectionToJSON('boston university ')
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }, []);
 
   return (
       <div className="labsBU">
@@ -40,7 +51,8 @@ function LabsBU() {
           <HeaderSchool/>
           <h1 className="SchoolHeader">Boston University</h1>
         </div>
-        {vanElements}
+        {data}
+        {/* {vanElements} */}
       </div>
     );
 }
