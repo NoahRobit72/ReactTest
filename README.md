@@ -28,7 +28,7 @@ Reviews can include information such as the quality of the research facilities, 
 ### Program Ratings
 Research programs are rated on a scale of 1-5 stars, based on the average rating of all the reviews left for the program.
 
-### Use Cases
+## Use Cases
 For more information, head to our Wiki to learn more about the use cases for this project
 
 <!-- ### User Profiles
