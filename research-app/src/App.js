@@ -6,6 +6,8 @@ import LabsBU from "./pages/LabPages/LabsBU"
 import LabsMIT from "./pages/LabPages/LabsMIT"
 import LabsNU from './pages/LabPages/LabsNU';
 import { LoginPage } from './pages/LoginPages/LoginPage';
+import HomeLoggedIn from './pages/HomeLoggedIn';
+
 
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<HomeLoggedIn/>} />
         <Route path="/LabsBU" element={<LabsBU />} />
         <Route path="/LabsMIT" element={<LabsMIT />} />
         <Route path="/LabsNU" element={<LabsNU />} />

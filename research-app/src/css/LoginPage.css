@@ -5,14 +5,21 @@ input {
     border: 1px solid #444;
     border-radius: 5px;
     display: block;
-}
-
-.formLogin{
+  }
+  
+  .formLogin {
     padding-top: 20px;
     padding-left: 20px;
-}
-
-button{
+    display: flex;
+    justify-content: center;
+    border: 1px solid #444;
+    border-radius: 5px;
+    width: 20%;
+    margin: auto;
+    margin-top: .2in;
+  }
+  
+  button {
     background-color: #04AA6D;
     border: none;
     color: white;
@@ -21,5 +28,19 @@ button{
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
+    margin-bottom: .5in;
+  }
+
+  h2{
+    text-align:center;
+}
+
+p{
+    text-align:center;
+}
+
+button{
+    justify-content: center;
 
 }
+  

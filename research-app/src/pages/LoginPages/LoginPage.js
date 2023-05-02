@@ -1,28 +1,7 @@
 import React from "react"
 import "../../css/LoginPage.css"
 import { useState } from 'react';
-
-
-// import { initializeApp } from "firebase/app";
-// import { getDatabase, ref, set } from "firebase/database";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//     apiKey: "AIzaSyDnvTbZTBGEP0D40K0ohmqDQsFVP3Iy-lU",
-//     authDomain: "ratingsreview-f04f9.firebaseapp.com",
-//     projectId: "ratingsreview-f04f9",
-//     storageBucket: "ratingsreview-f04f9.appspot.com",
-//     messagingSenderId: "984944313406",
-//     appId: "1:984944313406:web:52a529d0d3b00c3e18bd6f",
-//     measurementId: "G-0QPK4X29BL"
-//   };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const database = getDatabase(app);
-// const auth = getAuth();
-
+import { useNavigate } from "react-router-dom";
 
 
 export function LoginPage() {
@@ -35,6 +14,8 @@ export function LoginPage() {
     })
 
     const [showError, setShowError] = useState(false); // initialize state for error message
+    const navigate = useNavigate(false);
+
 
     
     // Parse the inputs and same them to variables 
@@ -49,9 +30,11 @@ export function LoginPage() {
     // On submit send this value to the firebase login 
     function handleSubmit(event) {
         event.preventDefault()
-        if(formData.password === formData.password2){
+        if((formData.password === formData.password2) && (formData.password !== "")){
             console.log("user submitted")
             setShowError(false);
+            var sendString = "/" + formData.firstName
+            navigate(sendString);
 
         }
         else{
@@ -61,6 +44,8 @@ export function LoginPage() {
     }
 
     return (
+    <div> 
+        <h2>Login</h2>
     <div className="formLogin">
         <form onSubmit={handleSubmit}>
             <input
@@ -91,10 +76,11 @@ export function LoginPage() {
                 name="password2"
                 value={formData.password2}
             />
-            {showError && <p>Passwords do not match. Please try again.</p>}
             <button>Submit</button>
-            
+            {showError && <p>Passwords do not match. Please try again.</p>}
+
         </form>
+    </div>
     </div>
     )
 }

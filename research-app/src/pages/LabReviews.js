@@ -25,7 +25,6 @@ function LabReviews() {
   // Returns json file of reviews
 
 
-
   const LabReviews = reviews.map(review => (
     <div className="reviews-tile">
       <p>Position: {review.Position}</p>
