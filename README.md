@@ -1,5 +1,5 @@
 <!-- # ResearchRatings.com -->
-[ResearchRatings.com](#https://storied-syrniki-9241c1.netlify.app/)
+[ResearchRatings.com](https://storied-syrniki-9241c1.netlify.app/)
 
 
 
@@ -25,6 +25,9 @@ Reviews can include information such as the quality of the research facilities, 
 
 ### Program Ratings
 Research programs are rated on a scale of 1-5 stars, based on the average rating of all the reviews left for the program.
+
+### Use Cases
+For more information, head to our Wiki to learn more about the use cases for this project
 
 <!-- ### User Profiles
 Users can create profiles on the website, which allows them to leave reviews, save programs to their favorites list, and connect with other students who have similar research interests. -->
