@@ -1,5 +1,7 @@
 <!-- # ResearchRatings.com -->
-[ResearchRatings.com](https://storied-syrniki-9241c1.netlify.app/)
+<!-- [ResearchRatings.com](https://storied-syrniki-9241c1.netlify.app/) -->
+# **[ResearchReviews.com](https://storied-syrniki-9241c1.netlify.app/)**
+
 
 
 
