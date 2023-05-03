@@ -1,5 +1,5 @@
 import React from "react"
-import "../../css/LoginPage.css"
+import "../../css/SignupPage.css"
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { auth } from "../../BackEnd/firebaseInfoFile";
 
 
 
-export function LoginSignup() {
+export function SignupPage() {
 
     const [formData, setFormData] = useState({
         email: "",

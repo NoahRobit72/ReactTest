@@ -36,7 +36,7 @@ export function LoginPage() {
     return (
     <div> 
         <h2>Login</h2>
-    <div className="formLogin">
+    <div className="formLogin" id="loginpage">
         <form onSubmit={handleSubmit}>
         <input
                 type="text"
