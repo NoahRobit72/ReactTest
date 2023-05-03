@@ -14,8 +14,6 @@ export function LoginPage() {
     })
 
     const navigate = useNavigate(false);
-
-
     
     // Parse the inputs and same them to variables 
     function handleChange(event) {
