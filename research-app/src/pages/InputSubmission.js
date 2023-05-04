@@ -1,16 +1,40 @@
 import React from "react"
 import { useState } from 'react';
+import Rating from '@mui/material/Rating';
 
 
-export function ReviewInput() {
+
+export function InputSubmission() {
 
     const [formData, setFormData] = useState({
         firstName: "",
-        title: "",
+        position: "",
         lab: "",
         comment: "",
-        rating: 0,
+        rating: null,
     })
+    
+    // const [value, setValue] = useState(0);
+    // // const [hover, setHover] = useState(-1);
+    
+    
+    // const useOnChange = (newValue) => {
+    //     const onChange = (event, newValue) => {
+    //     setValue(newValue);
+    //     };
+    //     return onChange;
+    // };
+    
+    // const useOnChangeActive = () => {
+    //     const onChangeActive = (event, newHover) => {
+    //     setHover(newHover);
+    //     };
+    //     return onChangeActive;
+    // };
+    
+    // const onChange = useOnChange(value);
+    // const onChangeActive = useOnChangeActive();
+
 
     // Parse the inputs and same them to variables 
     function handleChange(event) {
@@ -21,9 +45,11 @@ export function ReviewInput() {
         }))
     }
 
+
     // On submit send this value to the firebase login 
     function handleSubmit(event) {
         event.preventDefault()
+        console.log(formData.rating)
     }
 
     return (
@@ -40,10 +66,10 @@ export function ReviewInput() {
             />
             <input
                 type="text"
-                placeholder="Title"
+                placeholder="Position"
                 onChange = {handleChange}
-                name="title"
-                value={formData.title}
+                name="position"
+                value={formData.position}
             />
             <input
                 type="text"
@@ -60,13 +86,12 @@ export function ReviewInput() {
                 name="comment"
                 value={formData.comment}
             />
-            <input
-                type="radio"
-                placeholder="Rating"
-                onChange = {handleChange}
+            <Rating
                 name="rating"
                 value={formData.rating}
+                onChange={handleChange}
             />
+            <br></br>
             <button>Submit</button>
         </form>
     </div>
