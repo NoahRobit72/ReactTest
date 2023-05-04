@@ -1,8 +1,8 @@
 import React from "react"
 import { Link, useParams } from "react-router-dom"
-import HeaderLoggedIn from "../components/HeaderLoggedIn"
-import Slogan from "../components/Slogan"
-import "../css/Home.css"
+import HeaderLoggedIn from "../../components/HeaderLoggedIn"
+import Slogan from "../../components/Slogan"
+import "../../css/Home.css"
 
 export default function HomeLoggedIn() {
     const params = useParams()

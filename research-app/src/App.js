@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import LabReviews from './pages/LabReviews';
+import Home from "./pages/HomePages/Home"
+import LabReviews from './pages/DynamicPages/LabReviews';
 import LabsBU from "./pages/LabPages/LabsBU"
 import LabsMIT from "./pages/LabPages/LabsMIT"
 import LabsNU from './pages/LabPages/LabsNU';
-import { LoginPage } from './pages/LoginPages/LoginPage';
-import HomeLoggedIn from './pages/HomeLoggedIn';
-import { InputSubmission } from './pages/InputSubmission';
-import { SignupPage } from './pages/LoginPages/SignupPage';
+import { LoginPage } from './pages/SubmissionPages/LoginPage';
+import HomeLoggedIn from './pages/HomePages/HomeLoggedIn';
+import { InputSubmission } from './pages/SubmissionPages/InputSubmission';
+import { SignupPage } from './pages/SubmissionPages/SignupPage';
 
 
 

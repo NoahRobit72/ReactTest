@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { useParams } from "react-router-dom"
-import HeaderSchool from '../components/HeaderSchool';
-import "../css/LabReviews.css";
+import HeaderSchool from '../../components/HeaderSchool';
+import "../../css/LabReviews.css";
 
 // EXAMPLE DATA
 const reviews = [
