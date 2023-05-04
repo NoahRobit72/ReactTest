@@ -1,49 +1,46 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import {collection, query, onSnapshot } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FSDB} from "../../firebase_setup/firebase";
+import HeaderSchool from "../../components/HeaderSchool";
+import "../../css/LabPages.css";
 
-import HeaderSchool from "../../components/HeaderSchool"
-import "../../css/LabPages.css"
 
 
-// EXAMPLE DATA
-const labs = [
-    { name: 'Lab A', kind: 'BME' },
-    { name: 'Lab B', kind: 'ME' },
-    { name: 'Lab C', kind: 'CE' },
-  ];
-
-//
-// KFIR CODE
-//
-
-// Make a script to query the firebase data base for all the labs at BU
-
-// function "GetLabs(BU)" that returns:
-// { name: 'Lab A',  professor: 'Dr. Smith' },
-// { name: 'Lab C',  professor: 'Dr. Lee' },
 
 function LabsBU() {
+  const [labs, setLabs] = useState([]);
 
-  const vanElements = labs.map(lab => (
-      <div className="Lab-Blocks">
-        <Link className="Linked-Block" to={`/LabsBU/${lab.name}`}>
-          <p>Lab Name: {lab.name}</p>
-          <p>Kind: {lab.kind}</p>
-        </Link>
-      </div>
-  ))
+  useEffect(() => {
+    const q = query(collection(FSDB, "boston university "));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const labs = [];
+      querySnapshot.forEach((doc) => {
+        labs.push({ id: doc.id, ...doc.data() });
+      });
+      setLabs(labs);
+    });
+    return unsubscribe;
+  }, []);
+
+  const labElements = labs.map((lab) => (
+    <div className="Lab-Blocks" key={lab.id}>
+      <Link className="Linked-Block" to={`/LabsBU/${lab.id}`}>
+        <p>Lab Name: {lab.Name}</p>
+        <p>Professor: {lab.Professor}</p>
+      </Link>
+    </div>
+  ));
 
   return (
-      <div className="labsBU">
-        <div>
-          <HeaderSchool/>
-          <h1 className="SchoolHeader">Boston University</h1>
-        </div>
-        {vanElements}
+    <div className="labsBU">
+      <div>
+        <HeaderSchool />
+        <h1 className="SchoolHeader">Boston University</h1>
       </div>
-    );
+      {labElements}
+    </div>
+  );
 }
-
-
 
 export default LabsBU;
