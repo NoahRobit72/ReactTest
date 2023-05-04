@@ -1,6 +1,9 @@
 import React from "react"
 import { useState } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
 import Rating from '@mui/material/Rating';
+import "../css/InputSubmission.css"
+
 
 
 
@@ -11,30 +14,12 @@ export function InputSubmission() {
         position: "",
         lab: "",
         comment: "",
+        college: "",
         rating: null,
     })
     
-    // const [value, setValue] = useState(0);
-    // // const [hover, setHover] = useState(-1);
-    
-    
-    // const useOnChange = (newValue) => {
-    //     const onChange = (event, newValue) => {
-    //     setValue(newValue);
-    //     };
-    //     return onChange;
-    // };
-    
-    // const useOnChangeActive = () => {
-    //     const onChangeActive = (event, newHover) => {
-    //     setHover(newHover);
-    //     };
-    //     return onChangeActive;
-    // };
-    
-    // const onChange = useOnChange(value);
-    // const onChangeActive = useOnChangeActive();
-
+    const navigate = useNavigate(false);
+    const params = useParams()
 
     // Parse the inputs and same them to variables 
     function handleChange(event) {
@@ -45,11 +30,22 @@ export function InputSubmission() {
         }))
     }
 
-
     // On submit send this value to the firebase login 
     function handleSubmit(event) {
         event.preventDefault()
         console.log(formData.rating)
+
+        const formDataValues = Object.values(formData);
+        if (formDataValues.every((value) => value !== "" || value !== null)) {
+            //firebase send data
+            // go home
+            console.log(params.id)
+            var sendString = "/" + params.id
+            navigate(sendString);
+        } else {
+            
+        }
+
     }
 
     return (
@@ -79,6 +75,13 @@ export function InputSubmission() {
                 value={formData.lab}
             />
             <input
+                type="text"
+                placeholder="College"
+                onChange = {handleChange}
+                name="college"
+                value={formData.college}
+            />
+            <textarea
                 className="Comment"
                 type="text"
                 placeholder="Comment"
@@ -86,10 +89,13 @@ export function InputSubmission() {
                 name="comment"
                 value={formData.comment}
             />
+            <p>Rate your Research Program:</p>
             <Rating
+                className = "stars"
                 name="rating"
                 value={formData.rating}
                 onChange={handleChange}
+                size="large"            
             />
             <br></br>
             <button>Submit</button>

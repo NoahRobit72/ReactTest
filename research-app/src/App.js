@@ -23,7 +23,7 @@ function App() {
         <Route path="/LabsNU" element={<LabsNU />} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/LabsBU/:id" element={<LabReviews/>} />
-        <Route path="/ReviewInput" element={<InputSubmission/>} />
+        <Route path="/ReviewInput/:id" element={<InputSubmission/>} />
         <Route path="/signup" element={<SignupPage/>} />
 
       </Routes>
