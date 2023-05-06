@@ -1,7 +1,7 @@
 import {collection, query, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FSDB} from "../../firebase_setup/firebase";
+import { FSDB, firestore } from "../../firebase_setup/firebase";
 import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabPages.css";
 
@@ -12,7 +12,7 @@ function LabsBU() {
   const [labs, setLabs] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(FSDB, "boston university "));
+    const q = query(collection(FSDB, "boston university"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const labs = [];
       querySnapshot.forEach((doc) => {
