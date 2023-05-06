@@ -1,7 +1,7 @@
 import React from "react"
 import { useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
-import { addDocument } from "../../BackEnd/firebaseInfoFile";
+// import { addDocument } from "../../firebase_setup/firebase";
 import Rating from '@mui/material/Rating';
 import "../../css/InputSubmission.css"
 
@@ -39,7 +39,7 @@ export function InputSubmission() {
         const formDataValues = Object.values(formData);
         if (formDataValues.every((value) => value !== "" || value !== null)) {
             //firebase send data
-            addDocument(formData.college,formData.lab,formData.position,formData.rating,formData.comment);
+            // addDocument(formData.college,formData.lab,formData.position,formData.rating,formData.comment);
             console.log("I just tries to post to the fireststore")
             var sendString = "/" + params.id
             navigate(sendString);
