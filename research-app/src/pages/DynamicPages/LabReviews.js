@@ -1,29 +1,30 @@
-import { collection, query, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FSDB } from "../../firebase_setup/firebase";
 import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabReviews.css";
 
+
 function LabReviews() {
- 
-  //const { labId } = useParams();
-  const labId = "song lab"
+  const { id } = useParams();
+
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const reviewRef = collection(FSDB, "boston university", labId, "Reviews");
+    const reviewRef = collection(FSDB, "boston university", id, "Reviews");
 
     const unsubscribe = onSnapshot(reviewRef, (querySnapshot) => {
       const reviews = [];
       querySnapshot.forEach((doc) => {
-        reviews.push({ id: doc.id, ...doc.data() });
+        const { Position, Rating, Review } = doc.data();
+        reviews.push({ id: doc.id, Position, Rating, Review });
       });
       setReviews(reviews);
     });
 
     return unsubscribe;
-  }, [labId]);
+  }, [id]);
 
   const reviewElements = reviews.map((review) => (
     <div className="reviews-tile" key={review.id}>
@@ -36,7 +37,7 @@ function LabReviews() {
   return (
     <div>
       <HeaderSchool />
-      <h1 className="LabHeader">{labId}</h1>
+      <h1 className="LabHeader">{id}</h1>
       {reviewElements}
     </div>
   );

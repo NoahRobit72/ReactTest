@@ -12,7 +12,7 @@ function LabsBU() {
   const [labs, setLabs] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(FSDB, "boston university "));
+    const q = query(collection(FSDB, "boston university"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const labs = [];
       querySnapshot.forEach((doc) => {
