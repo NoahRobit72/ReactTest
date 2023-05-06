@@ -2,7 +2,7 @@ import React from "react"
 import "../../css/LoginPage.css"
 import { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
-import { auth } from "../../BackEnd/firebaseInfoFile";
+import { auth } from "../../firebase_setup/firebase";
 import {signInWithEmailAndPassword} from "firebase/auth";
 
 
