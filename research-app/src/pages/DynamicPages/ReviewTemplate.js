@@ -5,12 +5,12 @@ import "../DynamicPages/ReviewTemplate.css";
 
 function ReviewTemplate(props) {
   return (
-	<div class="container">
-		<div class="badge">
+	<div className="container">
+		<div className="badge" style={{ backgroundColor: props.badgeColor }}>
 		{props.rating}
 		</div>
-		<div class="text">
-            <div class="name-date">
+		<div className="text">
+            <div className="name-date">
 				<p><strong>{props.position}</strong></p>
 				<p>May 21st</p>
 			</div> <p>{props.comment}</p>

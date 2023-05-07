@@ -60,6 +60,8 @@ export default function HomeLoggedIn() {
                 }}
             />
         </Stack>
+        <div className="strip">
+        </div>
         {/* <div className="button-div">
             <Link className="link-button" to="/LabsBU">BU</Link>
             <Link className="link-button" to="/LabsMIT">MIT</Link>
