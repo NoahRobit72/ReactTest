@@ -26,10 +26,11 @@ header a {
 
 }
 
-.insertName {
+p.insertName {
     text-decoration: none;
     color: black;
     font-weight: 800;
     margin-right: 1in;
+    margin-top: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }

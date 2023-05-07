@@ -47,15 +47,15 @@ export function LoginPage() {
     async function handleSubmit(event) {
         event.preventDefault()
         const result = await login();
-        if (result.error) {
-            console.log(result.message);
-            setShowError(true);
-        }
-        else{
+
+        if(formData.name !== "" & !(result.error)){
             console.log(result);
             var sendString = "/" + formData.name
             navigate(sendString);  
             setShowError(false);
+        } else{
+            console.log(result.message);
+            setShowError(true);
         }
 
          

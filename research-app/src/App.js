@@ -11,9 +11,6 @@ import HomeLoggedIn from './pages/HomePages/HomeLoggedIn';
 import { InputSubmission } from './pages/SubmissionPages/InputSubmission';
 import { SignupPage } from './pages/SubmissionPages/SignupPage';
 
-
-
-
 function App() {
   return (
     <BrowserRouter>
