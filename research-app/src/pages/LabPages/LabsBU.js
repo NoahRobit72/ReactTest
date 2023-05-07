@@ -10,9 +10,10 @@ import "../../css/LabPages.css";
 
 function LabsBU() {
   const [labs, setLabs] = useState([]);
+  const collegeName = "boston university"
 
   useEffect(() => {
-    const q = query(collection(FSDB, "boston university"));
+    const q = query(collection(FSDB, collegeName));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const labs = [];
       querySnapshot.forEach((doc) => {
@@ -25,7 +26,7 @@ function LabsBU() {
 
   const labElements = labs.map((lab) => (
     <div className="Lab-Blocks" key={lab.id}>
-      <Link className="Linked-Block" to={`/LabsBU/${lab.id}`}>
+    <Link className="Linked-Block" to={`/LabsBU/${collegeName}/${lab.id}`}>
         <p>Lab Name: {lab.Name}</p>
         <p>Professor: {lab.Professor}</p>
       </Link>

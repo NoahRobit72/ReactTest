@@ -4,19 +4,16 @@ import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabReviews.css";
 import { getLabReviews } from "../../Handles/LabReviewQuerey";
 
-
-//still needed a little bit of code here to display the data
 function LabReviews() {
-  const { id } = useParams();
-
+  const { labId, collegeName } = useParams();
   const [reviews, setReviews] = useState([]);
 
+  console.log(collegeName)
+
   useEffect(() => {
-    const unsubscribe = getLabReviews(id, setReviews);
+    const unsubscribe = getLabReviews(collegeName, labId, setReviews);
     return unsubscribe;
-  }, [id]);
-
-
+  }, [collegeName, labId]);
 
   const reviewElements = reviews.map((review) => (
     <div className="reviews-tile" key={review.id}>
@@ -29,7 +26,7 @@ function LabReviews() {
   return (
     <div>
       <HeaderSchool />
-      <h1 className="LabHeader">{id}</h1>
+      <h1 className="LabHeader">{labId}</h1>
       {reviewElements}
     </div>
   );

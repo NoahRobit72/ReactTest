@@ -1,8 +1,8 @@
 import { collection, onSnapshot } from "firebase/firestore";
 import { FSDB } from "../firebase_setup/firebase";
 
-export function getLabReviews(collegeName, labId, setReviews) {
-  const reviewRef = collection(FSDB, collegeName, labId, "Reviews");
+export function getLabReviewsNU(id, setReviews) {
+  const reviewRef = collection(FSDB, "Northeastern", id, "Reviews");
 
   const unsubscribe = onSnapshot(reviewRef, (querySnapshot) => {
     const reviews = [];

@@ -6,13 +6,13 @@ import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabPages.css";
 
 
-
+const collegeName = "Northeastern"
 
 function LabsBU() {
   const [labs, setLabs] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(FSDB, "Northeastern"));
+    const q = query(collection(FSDB, collegeName));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const labs = [];
       querySnapshot.forEach((doc) => {
@@ -25,7 +25,7 @@ function LabsBU() {
 
   const labElements = labs.map((lab) => (
     <div className="Lab-Blocks" key={lab.id}>
-      <Link className="Linked-Block" to={`/LabsNU/${lab.id}`}>
+    <Link className="Linked-Block" to={`/LabsBU/${collegeName}/${lab.id}`}>
         <p>Lab Name: {lab.Name}</p>
         <p>Professor: {lab.Professor}</p>
       </Link>

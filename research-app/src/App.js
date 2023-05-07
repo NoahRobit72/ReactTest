@@ -24,10 +24,12 @@ function App() {
         <Route path="/LabsMIT" element={<LabsMIT />} />
         <Route path="/LabsNU" element={<LabsNU />} />
         <Route path="/login" element={<LoginPage/>} />
+        <Route path="/LabsBU/:collegeName/:labId" element={<LabReviews />} />
         <Route path="/LabsBU/:id" element={<LabReviews/>} /> 
         {/* <Route path="/LabsBU/:id" element={<LabReviewsTest/>} />  */}
         <Route path="/ReviewInput/:id" element={<InputSubmission/>} />
         <Route path="/signup" element={<SignupPage/>} />
+        
       </Routes>
     </BrowserRouter>
   )
