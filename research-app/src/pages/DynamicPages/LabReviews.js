@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabReviews.css";
 import { getLabReviews } from "../../Handles/LabReviewQuerey";
+import ReviewTemplate from "./ReviewTemplate";
 
 function LabReviews() {
   const { labId, collegeName } = useParams();
@@ -15,13 +16,26 @@ function LabReviews() {
     return unsubscribe;
   }, [collegeName, labId]);
 
-  const reviewElements = reviews.map((review) => (
-    <div className="reviews-tile" key={review.id}>
-      <p>Position: {review.Position}</p>
-      <p>Rating: {review.Rating}</p>
-      <p>Review: {review.Review}</p>
-    </div>
-  ));
+  const reviewElements = reviews.map((review) => {
+    let badgeColor;
+    if (review.Rating >= 0 && review.Rating < 2) {
+      badgeColor = "DarkRed";
+    } else if (review.Rating >= 2 && review.Rating < 3) {
+      badgeColor = "Gold";
+    } else if (review.Rating >= 3) {
+      badgeColor = "DarkGreen";
+    }
+    return (
+      <div className="reviews-tile" key={review.id}>
+        <ReviewTemplate 
+          position={review.Position}
+          rating={review.Rating}
+          comment={review.Review}
+          badgeColor={badgeColor}
+        />
+      </div>
+    );
+  });
 
   return (
     <div>
