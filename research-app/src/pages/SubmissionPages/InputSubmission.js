@@ -9,6 +9,7 @@ export function InputSubmission() {
 
     const [formData, setFormData] = useState({
         firstName: "",
+        Professor: "",
         position: "",
         lab: "",
         comment: "",
@@ -30,10 +31,10 @@ export function InputSubmission() {
     function handleFormSubmit(event) {
         event.preventDefault();
 
-        const { comment, college, lab } = formData;
+        const { comment, college, lab, position, Professor } = formData;
 
-        if (comment && college && lab) {
-            handleSubmit(comment, college, lab);
+        if (comment && college && lab && position && Professor) {
+            handleSubmit(comment, college, lab, position, Professor);
             console.log("I just tried to post to the Firestore");
 
             const sendString = `/${params.id}`;
@@ -54,6 +55,13 @@ export function InputSubmission() {
                         onChange={handleChange}
                         name="firstName"
                         value={formData.firstName}
+                    />
+                     <input
+                        type="text"
+                        placeholder="Professor"
+                        onChange={handleChange}
+                        name="Professor"
+                        value={formData.Professor}
                     />
                     <input
                         type="text"
