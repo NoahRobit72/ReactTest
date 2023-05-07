@@ -1,5 +1,6 @@
 import { addDoc, collection, doc, getDocs, setDoc } from "@firebase/firestore";
 import { FSDB } from "../firebase_setup/firebase";
+import {LabExists} from "../Handles/labExists"
 
 const handleSubmit = async (Review, college_name, Name, Position, Professor, Type, Rating) => {
   // Check if college_name is a valid string
@@ -14,28 +15,40 @@ const handleSubmit = async (Review, college_name, Name, Position, Professor, Typ
     return;
   }
 
-  // Check if the collection exists
+  // Check if the University collection exists
   const querySnapshot = await getDocs(collection(FSDB, college_name));
   if (querySnapshot.size === 0) {
-    // Collection doesn't exist, create a new one
+    // Collection doesn't exist, create a new one for that university 
     const labDocRef = doc(FSDB, college_name, Name);
-    await setDoc(labDocRef, { Name, Position, Professor });
     
+    //add the lab document to the university collection
+    await setDoc(labDocRef, { Name, Position, Professor });
+
     // Create Reviews subcollection within the new lab document
     const reviewsColRef = collection(labDocRef, "Reviews");
     
     // Add a new document to the Reviews subcollection for the new review
     await addDoc(reviewsColRef, { Review, Type, Rating });
-  } else {
-    // Collection exists, add a new document to it
-    const labDocRef = doc(collection(FSDB, college_name), Name);
-    await setDoc(labDocRef, { Name, Position, Professor });
+  } 
+  // Collection exists, add a new document to it
+  else {
+    //check if the lab exists or not if the lab does not exists add a new document and create a new Reviews sub collection 
+    if (!LabExists(college_name, Name)) {
+      //adding a new document to the university collection
+      const labDocRef = doc(FSDB, college_name, Name);
+      await setDoc(labDocRef, { Name, Position, Professor });
+      //create Reviews subcollection
+      const reviewsColRef = collection(labDocRef, "Reviews");
+      await addDoc(reviewsColRef, { Review, Type, Rating });
+
+    } 
+    else {
+      //lab does exists so just add another review 
+      const labDocRef = doc(FSDB, college_name, Name);
+      const reviewsColRef = collection(labDocRef, "Reviews");
+      await addDoc(reviewsColRef, { Review, Type, Rating });
+    }
     
-    // Create Reviews subcollection within the existing lab document
-    const reviewsColRef = collection(labDocRef, "Reviews");
-    
-    // Add a new document to the Reviews subcollection for the new review
-    await addDoc(reviewsColRef, { Review, Type, Rating });
   }
 };
 
