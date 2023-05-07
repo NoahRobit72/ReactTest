@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabReviews.css";
 import { getLabReviews } from "../../Handles/LabReviewQuerey";
+import ReviewTemplate from "./ReviewTemplate";
+
 
 
 //still needed a little bit of code here to display the data
@@ -14,16 +16,16 @@ function LabReviews() {
   useEffect(() => {
     const unsubscribe = getLabReviews(id, setReviews);
     return unsubscribe;
-  }, [id]);
-
-
+  }, [setReviews,id]);
 
   const reviewElements = reviews.map((review) => (
     <div className="reviews-tile" key={review.id}>
-      <p>Position: {review.Position}</p>
-      <p>Rating: {review.Rating}</p>
-      <p>Review: {review.Review}</p>
-    </div>
+    <ReviewTemplate 
+      position = {review.Position}
+      rating = {review.Rating}
+      comment = {review.Review}
+      />
+  </div>
   ));
 
   return (
