@@ -5,6 +5,8 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
 
 import { useEffect } from 'react';
 
@@ -64,11 +66,11 @@ export default function Home() {
         <div className="strip">
 
         </div>
-        {/* <div className="button-div">
-            <Link className="link-button" to="/LabsBU">BU</Link>
-            <Link className="link-button" to="/LabsMIT">MIT</Link>
-            <Link className="link-button" to="/LabsNU">NU</Link>            
-        </div> */}
+        <div className="button-div">
+            {/* <Link className="link-button" to="/LinkTest">show me the money</Link> */}
+            {/* <Link className="link-button" to="/LabsMIT">MIT</Link>
+            <Link className="link-button" to="/LabsNU">NU</Link>             */}
+        </div>
     </div>
     )
   }
