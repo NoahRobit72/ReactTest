@@ -1,7 +1,7 @@
 import {collection, query, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FSDB, firestore } from "../../firebase_setup/firebase";
+import { FSDB,} from "../../firebase_setup/firebase";
 import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabPages.css";
 

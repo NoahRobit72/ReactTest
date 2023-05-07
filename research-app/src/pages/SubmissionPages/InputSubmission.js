@@ -1,12 +1,9 @@
-import React from "react"
+import React from "react";
 import { useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
-// import { addDocument } from "../../firebase_setup/firebase";
 import Rating from '@mui/material/Rating';
-import "../../css/InputSubmission.css"
-
-
-
+import "../../css/InputSubmission.css";
+import handleSubmit from "../../Handles/handlesubmit.js";
 
 export function InputSubmission() {
 
@@ -17,91 +14,88 @@ export function InputSubmission() {
         comment: "",
         college: "",
         rating: null,
-    })
+    });
     
     const navigate = useNavigate(false);
-    const params = useParams()
+    const params = useParams();
 
-    // Parse the inputs and same them to variables 
     function handleChange(event) {
-        const{name,value} = event.target
+        const { name, value } = event.target;
         setFormData(prevFormData => ({
             ...prevFormData,
-            [name]:value
-        }))
+            [name]: value
+        }));
     }
 
-    // On submit send this value to the firebase login 
-    function handleSubmit(event) {
-        event.preventDefault()
-        console.log(formData.rating)
+    function handleFormSubmit(event) {
+        event.preventDefault();
 
-        const formDataValues = Object.values(formData);
-        if (formDataValues.every((value) => value !== "" || value !== null)) {
-            //firebase send data
-            // addDocument(formData.college,formData.lab,formData.position,formData.rating,formData.comment);
-            console.log("I just tries to post to the fireststore")
-            var sendString = "/" + params.id
+        const { comment, college, lab } = formData;
+
+        if (comment && college && lab) {
+            handleSubmit(comment, college, lab);
+            console.log("I just tried to post to the Firestore");
+
+            const sendString = `/${params.id}`;
             navigate(sendString);
         } else {
-            
+            console.log("Error: all fields are required");
         }
-
     }
 
     return (
-    <div> 
-        <h2>Input Review</h2>
-    <div className="formLogin">
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="First name - Hidden"
-                onChange = {handleChange}
-                name="firstName"
-                value={formData.firstName}
-            />
-            <input
-                type="text"
-                placeholder="Position"
-                onChange = {handleChange}
-                name="position"
-                value={formData.position}
-            />
-            <input
-                type="text"
-                placeholder="Lab"
-                onChange = {handleChange}
-                name="lab"
-                value={formData.lab}
-            />
-            <input
-                type="text"
-                placeholder="College"
-                onChange = {handleChange}
-                name="college"
-                value={formData.college}
-            />
-            <textarea
-                className="Comment"
-                type="text"
-                placeholder="Comment"
-                onChange = {handleChange}
-                name="comment"
-                value={formData.comment}
-            />
-            <p>Rate your Research Program:</p>
-            <Rating
-                className = "stars"
-                name="rating"
-                value={formData.rating}
-                onChange={handleChange}
-                size="large"            
-            />
-            <br></br>
-            <button>Submit</button>
-        </form>
-    </div>
-    </div>
-    )
+        <div> 
+            <h2>Input Review</h2>
+            <div className="formLogin">
+                <form onSubmit={handleFormSubmit}>
+                    <input
+                        type="text"
+                        placeholder="First name - Hidden"
+                        onChange={handleChange}
+                        name="firstName"
+                        value={formData.firstName}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Position"
+                        onChange={handleChange}
+                        name="position"
+                        value={formData.position}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Lab"
+                        onChange={handleChange}
+                        name="lab"
+                        value={formData.lab}
+                    />
+                    <input
+                        type="text"
+                        placeholder="College"
+                        onChange={handleChange}
+                        name="college"
+                        value={formData.college}
+                    />
+                    <textarea
+                        className="Comment"
+                        type="text"
+                        placeholder="Comment"
+                        onChange={handleChange}
+                        name="comment"
+                        value={formData.comment}
+                    />
+                    <p>Rate your Research Program:</p>
+                    <Rating
+                        className="stars"
+                        name="rating"
+                        value={formData.rating}
+                        onChange={handleChange}
+                        size="large"            
+                    />
+                    <br />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    );
 }
