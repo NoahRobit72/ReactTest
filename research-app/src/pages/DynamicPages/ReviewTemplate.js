@@ -6,7 +6,7 @@ import "../DynamicPages/ReviewTemplate.css";
 function ReviewTemplate(props) {
   return (
 	<div className="container">
-		<div className="badge">
+		<div className="badge" style={{ backgroundColor: props.badgeColor }}>
 		{props.rating}
 		</div>
 		<div className="text">

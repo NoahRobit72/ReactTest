@@ -18,15 +18,26 @@ function LabReviews() {
     return unsubscribe;
   }, [setReviews,id]);
 
-  const reviewElements = reviews.map((review) => (
-    <div className="reviews-tile" key={review.id}>
-    <ReviewTemplate 
-      position = {review.Position}
-      rating = {review.Rating}
-      comment = {review.Review}
-      />
-  </div>
-  ));
+  const reviewElements = reviews.map((review) => {
+    let badgeColor;
+    if (review.Rating >= 0 && review.Rating < 2) {
+      badgeColor = "DarkRed";
+    } else if (review.Rating >= 2 && review.Rating < 3) {
+      badgeColor = "Gold";
+    } else if (review.Rating >= 3) {
+      badgeColor = "DarkGreen";
+    }
+    return (
+      <div className="reviews-tile" key={review.id}>
+        <ReviewTemplate 
+          position={review.Position}
+          rating={review.Rating}
+          comment={review.Review}
+          badgeColor={badgeColor}
+        />
+      </div>
+    );
+  });
 
   return (
     <div>
