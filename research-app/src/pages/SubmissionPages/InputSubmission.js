@@ -3,16 +3,18 @@ import { useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import Rating from '@mui/material/Rating';
 import "../../css/InputSubmission.css";
-import handleSubmit from "../../Handles/handlesubmit.js";
+import {addReview} from "../../firebase_setup/firebase"
+
+
 
 export function InputSubmission() {
 
     const [formData, setFormData] = useState({
         firstName: "",
-        Professor: "",
+        professor: "",
         position: "",
         lab: "",
-        comment: "",
+        review: "",
         college: "",
         rating: null,
     });
@@ -31,10 +33,10 @@ export function InputSubmission() {
     function handleFormSubmit(event) {
         event.preventDefault();
 
-        const { comment, college, lab, position, Professor } = formData;
+        const { review, college, lab, position, professor, rating } = formData;
 
-        if (comment && college && lab && position && Professor) {
-            handleSubmit(comment, college, lab, position, Professor);
+        if (review && college && lab && position && professor) {
+            addReview(college, lab, review, position, rating)
             console.log("I just tried to post to the Firestore");
 
             const sendString = `/${params.id}`;
@@ -60,8 +62,8 @@ export function InputSubmission() {
                         type="text"
                         placeholder="Professor"
                         onChange={handleChange}
-                        name="Professor"
-                        value={formData.Professor}
+                        name="professor"
+                        value={formData.professor}
                     />
                     <input
                         type="text"
@@ -89,8 +91,8 @@ export function InputSubmission() {
                         type="text"
                         placeholder="Comment"
                         onChange={handleChange}
-                        name="comment"
-                        value={formData.comment}
+                        name="review"
+                        value={formData.review}
                     />
                     <p>Rate your Research Program:</p>
                     <Rating

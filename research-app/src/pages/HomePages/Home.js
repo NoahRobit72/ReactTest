@@ -5,7 +5,8 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {addReview} from "../../firebase_setup/firebase"
 
 
 import { useEffect } from 'react';
@@ -24,6 +25,11 @@ export default function Home() {
     const navigate = useNavigate(false);
     const [value, setValue] = React.useState('');
     const [inputValue, setInputValue] = React.useState('');
+
+    function sendData(){
+        addReview("boston university", "wang Lab", "it was an alright place", "Post Doc", 3)
+        console.log("I am trying to print the data to firebase ")
+    }
 
     useEffect(() => {
         if(value.label !== ''){
@@ -67,7 +73,7 @@ export default function Home() {
 
         </div>
         <div className="button-div">
-            {/* <Link className="link-button" to="/LinkTest">show me the money</Link> */}
+            <Link className="link-button" to="/LinkTest" onClick = {sendData}>show me the money</Link>
             {/* <Link className="link-button" to="/LabsMIT">MIT</Link>
             <Link className="link-button" to="/LabsNU">NU</Link>             */}
         </div>
