@@ -27,7 +27,7 @@ export const FSDB = getFirestore(app)
 export const auth = getAuth(app);
 const db = getFirestore(app);
 
-
+// Function to make ID
 function makeid(length) {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

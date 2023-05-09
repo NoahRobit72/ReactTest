@@ -1,5 +1,6 @@
 import React from "react"
 import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 import Slogan from "../../components/Slogan"
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
@@ -77,6 +78,7 @@ export default function Home() {
             {/* <Link className="link-button" to="/LabsMIT">MIT</Link>
             <Link className="link-button" to="/LabsNU">NU</Link>             */}
         </div>
+        <Footer/>
     </div>
     )
   }
