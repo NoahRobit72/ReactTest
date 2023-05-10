@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore"
 import { getAuth } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import { getDatabase, ref, set } from "firebase/database";
+
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,6 +28,7 @@ const app = initializeApp(firebaseConfig);
 export const FSDB = getFirestore(app)
 export const auth = getAuth(app);
 const db = getFirestore(app);
+
 
 // Function to make ID
 function makeid(length) {
@@ -56,5 +59,37 @@ export async function addReview(school, lab, review, position, rating) {
   }
 }
 
-// Example usage:
+// Function to add a user to the realtime database
+// export function writeUserData(name, email) {
+//   const userId = makeid(10) 
+//   const db = getDatabase();
+//   set(ref(db, 'users/' + userId), {
+//     username: name,
+//     email: email,
+//   });
+// }
+
+// Login Function
+export async function signUpUser(name,email,password){
+  // reatime database signup
+  const userId = makeid(10) 
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: name,
+    email: email,
+  });
+
+  // email signup
+  try {
+    const user = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
 
