@@ -6,7 +6,7 @@
 ![hello](Extras/Homepage.png)  
 
 ### How to Use
-To use the website, all you have to do is click here [ResearchRatings.com](https://storied-syrniki-9241c1.netlify.app/). There are no prerequisites.
+To use the website, all you have to do is click here [ResearchRatings.com](https://research-ratings.com/). There are no prerequisites.
 
 
 ## Overview
