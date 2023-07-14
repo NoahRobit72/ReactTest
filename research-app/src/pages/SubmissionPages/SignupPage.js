@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase_setup/firebase";
+import { signUpUser } from "../../firebase_setup/firebase";
+
+
 
 
 
@@ -50,7 +53,7 @@ export function SignupPage() {
         if((formData.password === formData.password2) && (formData.password !== "")){
             console.log("user submitted")
             setShowError(false);
-            register();
+            signUpUser(formData.firstName,formData.email,formData.password)
             var sendString = "/" + formData.firstName
             navigate(sendString);
         }

@@ -1,12 +1,16 @@
 import React from "react"
 import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 import Slogan from "../../components/Slogan"
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {addReview} from "../../firebase_setup/firebase"
+// import {addReview} from "../../firebase_setup/firebase" commeed out for now, use for testing
+import {writeUserData} from "../../firebase_setup/firebase"
+
+
 
 
 import { useEffect } from 'react';
@@ -27,7 +31,8 @@ export default function Home() {
     const [inputValue, setInputValue] = React.useState('');
 
     function sendData(){
-        addReview("boston university", "wang Lab", "it was an alright place", "Post Doc", 3)
+        // writeUserData("noah1", "Noahro@bu.edu")
+        //addReview("boston university", "wang Lab", "it was an alright place", "Post Doc", 3)
         console.log("I am trying to print the data to firebase ")
     }
 
@@ -77,6 +82,7 @@ export default function Home() {
             {/* <Link className="link-button" to="/LabsMIT">MIT</Link>
             <Link className="link-button" to="/LabsNU">NU</Link>             */}
         </div>
+        <Footer/>
     </div>
     )
   }
