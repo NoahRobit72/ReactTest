@@ -80,6 +80,7 @@ export async function signUpUser(name,email,password){
   });
 
   // email signup
+/*
   try {
     const user = await createUserWithEmailAndPassword(
       auth,
@@ -89,7 +90,7 @@ export async function signUpUser(name,email,password){
   } catch (error) {
     console.log(error.message);
   }
+  */
 };
-
 
 

@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "../../components/Header"
-import Footer from "../../components/Footer"
+//import Footer from "../../components/Footer"
 import Slogan from "../../components/Slogan"
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
@@ -8,7 +8,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import {addReview} from "../../firebase_setup/firebase" commeed out for now, use for testing
-import {writeUserData} from "../../firebase_setup/firebase"
+//import {writeUserData} from "../../firebase_setup/firebase"
 
 
 
@@ -81,8 +81,7 @@ export default function Home() {
             <Link className="link-button" to="/LinkTest" onClick = {sendData}>show me the money</Link>
             {/* <Link className="link-button" to="/LabsMIT">MIT</Link>
             <Link className="link-button" to="/LabsNU">NU</Link>             */}
-        </div>
-        <Footer/>
+        </div> 
     </div>
     )
   }
