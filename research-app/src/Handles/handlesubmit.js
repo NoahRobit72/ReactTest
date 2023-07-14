@@ -15,7 +15,7 @@ const handleSubmit = async (Review, college_name, Name, Position, Professor, Typ
     return;
   }
 
-  // Check if the University collection exists
+  //university collection does not exist
   const querySnapshot = await getDocs(collection(FSDB, college_name));
   if (querySnapshot.size === 0) {
     // Collection doesn't exist, create a new one for that university 
@@ -23,33 +23,56 @@ const handleSubmit = async (Review, college_name, Name, Position, Professor, Typ
     
     //add the lab document to the university collection
     await setDoc(labDocRef, { Name, Position, Professor });
-
+  
     // Create Reviews subcollection within the new lab document
-    const reviewsColRef = collection(labDocRef, "Reviews");
+    const parentDocumentRef = FSDB.collection(college_name).doc(Name);
+    const reviewsCollectionRef = parentDocumentRef.collection("Reviews");
     
     // Add a new document to the Reviews subcollection for the new review
-    await addDoc(reviewsColRef, { Review, Type, Rating });
-  } 
-  // Collection exists, add a new document to it
+    await reviewsCollectionRef.add({ Review, Type, Rating });
+  }
+  
+  // university Collection exists, add a new document to it
   else {
     //check if the lab exists or not if the lab does not exists add a new document and create a new Reviews sub collection 
     if (!LabExists(college_name, Name)) {
       //adding a new document to the university collection
       const labDocRef = doc(FSDB, college_name, Name);
       await setDoc(labDocRef, { Name, Position, Professor });
-      //create Reviews subcollection
-      const reviewsColRef = collection(labDocRef, "Reviews");
-      await addDoc(reviewsColRef, { Review, Type, Rating });
+    // Create Reviews subcollection within the new lab document
+      const parentDocumentRef = FSDB.collection(college_name).doc(Name)
+      parentDocumentRef.collection('Reviews').add({
+        // ...add data to the sub-collection here
+        Review, 
+        Type, 
+        Rating 
+        });
 
     } 
     else {
-      //lab does exists so just add another review 
-      const labDocRef = doc(FSDB, college_name, Name);
-      const reviewsColRef = collection(labDocRef, "Reviews");
-      await addDoc(reviewsColRef, { Review, Type, Rating });
+      // Create Reviews subcollection within the new lab document
+      const parentDocumentRef = FSDB.collection(college_name).doc(Name)
+      parentDocumentRef.collection('Reviews').add({
+        // ...add data to the sub-collection here
+        Review, 
+        Type, 
+        Rating 
+        });
     }
     
   }
 };
 
 export default handleSubmit;
+
+
+// Get a reference to the parent collection
+//const parentCollectionRef = db.collection('parentCollection');
+
+// Get a reference to the parent document
+//const parentDocumentRef = parentCollectionRef.doc('parentDocument');
+
+// Create a sub-collection within the parent document
+//parentDocumentRef.collection('subCollection').add({
+// ...add data to the sub-collection here
+//})
