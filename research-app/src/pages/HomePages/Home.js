@@ -6,7 +6,6 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 // import {addReview} from "../../firebase_setup/firebase" commeed out for now, use for testing
 //import {writeUserData} from "../../firebase_setup/firebase"
 
@@ -29,12 +28,6 @@ export default function Home() {
     const navigate = useNavigate(false);
     const [value, setValue] = React.useState('');
     const [inputValue, setInputValue] = React.useState('');
-
-    function sendData(){
-        // writeUserData("noah1", "Noahro@bu.edu")
-        //addReview("boston university", "wang Lab", "it was an alright place", "Post Doc", 3)
-        console.log("I am trying to print the data to firebase ")
-    }
 
     useEffect(() => {
         if(value.label !== ''){

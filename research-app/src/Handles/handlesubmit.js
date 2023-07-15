@@ -65,14 +65,3 @@ const handleSubmit = async (Review, college_name, Name, Position, Professor, Typ
 
 export default handleSubmit;
 
-
-// Get a reference to the parent collection
-//const parentCollectionRef = db.collection('parentCollection');
-
-// Get a reference to the parent document
-//const parentDocumentRef = parentCollectionRef.doc('parentDocument');
-
-// Create a sub-collection within the parent document
-//parentDocumentRef.collection('subCollection').add({
-// ...add data to the sub-collection here
-//})
