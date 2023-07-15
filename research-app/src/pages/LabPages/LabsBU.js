@@ -5,7 +5,7 @@ import { FSDB,} from "../../firebase_setup/firebase";
 import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabPages.css";
 
-
+// This page is for displaying all the labs for a specific school
 function LabsBU() {
   const [labs, setLabs] = useState([]);
   const collegeName = "boston university"

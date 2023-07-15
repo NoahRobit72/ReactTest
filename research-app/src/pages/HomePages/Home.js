@@ -8,16 +8,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from "react-router-dom";
 // import {addReview} from "../../firebase_setup/firebase" commeed out for now, use for testing
 //import {writeUserData} from "../../firebase_setup/firebase"
-
-
-
-
 import { useEffect } from 'react';
-
-
 import "../../css/Home.css"
 
-
+// This is the home page
 export default function Home() {
     const top5Songs = [
         { label: 'Boston University'},

@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import "../../css/Home.css"
 
+
+// This is the home page for a logged in User  
 export default function HomeLoggedIn() {
     const params = useParams()
     const top5Songs = [
