@@ -77,11 +77,6 @@ export default function Home() {
         <div className="strip">
 
         </div>
-        <div className="button-div">
-            <Link className="link-button" to="/LinkTest" onClick = {sendData}>show me the money</Link>
-            {/* <Link className="link-button" to="/LabsMIT">MIT</Link>
-            <Link className="link-button" to="/LabsNU">NU</Link>             */}
-        </div> 
     </div>
     )
   }
