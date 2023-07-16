@@ -1,28 +1,40 @@
 .Lab-Blocks{
-    width: 75%;
-    border: 5px solid gray;
-    padding: 10px;
-    margin: 20px;
+    border: 5px solid rgb(128, 128, 128);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+    background-color: rgb(222, 218, 218);
+}
+
+.BlockContents{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .SchoolHeader{
-    margin-left: 10px;
     font-size: 30px;
+    margin-left: 10px;
 }
 
 .Rating{
     margin-top: 10px;
-    margin-left: 50%;
-    font-size: 100px;
+    margin-left: 50px;
+    font-size: 60px;
 }
 
 .UnderRating{
-    margin-left: 50%;
     font-size: 15px;
+    margin-top: 5px;
+    margin-left: 40px;
 }
 
 .Reviews{
-    margin-left: 10px;
+    margin-left: 20px;
     font-size: 20px;
 }
 
@@ -31,6 +43,7 @@
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     color:black;
+
 }
 
 .AttributesTable {
@@ -49,15 +62,51 @@ padding: 10px;
 text-align: left;
 }
 
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.column {
+/* .flexBox {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
+} */
+
+.headInformation{
+        display: flex;
+        margin: 0; 
+}
+
+.flexBox{
+    flex: 1; /* Distribute available space equally */
+    display: flex;
+    align-items: left;
+}
+
+.centered-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.box {
+    flex: 1; /* Distribute available space equally */
+    display: flex;
+    flex-direction: column; /* Set flex direction to column */
+    /* justify-content: center; */
+    /* align-items: center; */
   }
 
+  .box-1 {
+    display: flex; /* Display the box as a flex container */
+    flex-direction: column; /* Set flex direction to column */
+    justify-content: flex-start; /* Align contents to the left */
+    align-items: flex-start; /* Align contents to the left */
+    flex-basis: 35%; /* Set the width of the first box to 35% */
+  }
+  
+  .box-2 {
+    flex-basis: 65%; /* Set the width of the second box to 65% */
+  }
+
+  
+  
+  
+  

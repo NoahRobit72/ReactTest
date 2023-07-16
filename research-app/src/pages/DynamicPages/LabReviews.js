@@ -5,6 +5,8 @@ import "../../css/LabReviews.css";
 import { getLabReviews } from "../../Handles/LabReviewQuerey";
 import ReviewTemplate from "./ReviewTemplate";
 
+
+// This page is for displaying all the reviews for a specific lab
 function LabReviews() {
   const { labId, collegeName } = useParams();
   const [reviews, setReviews] = useState([]);

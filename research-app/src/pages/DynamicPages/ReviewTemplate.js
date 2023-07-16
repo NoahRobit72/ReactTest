@@ -2,7 +2,7 @@ import React from "react";
 
 import "../DynamicPages/ReviewTemplate.css";
 
-
+// This is the template for each review
 function ReviewTemplate(props) {
   return (
 	<div className="container">

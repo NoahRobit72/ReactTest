@@ -59,15 +59,6 @@ export async function addReview(school, lab, review, position, rating) {
   }
 }
 
-// Function to add a user to the realtime database
-// export function writeUserData(name, email) {
-//   const userId = makeid(10) 
-//   const db = getDatabase();
-//   set(ref(db, 'users/' + userId), {
-//     username: name,
-//     email: email,
-//   });
-// }
 
 // Login Function
 export async function signUpUser(name,email,password){
@@ -79,18 +70,4 @@ export async function signUpUser(name,email,password){
     email: email,
   });
 
-  // email signup
-/*
-  try {
-    const user = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-  } catch (error) {
-    console.log(error.message);
-  }
-  */
-};
-
-
+}
