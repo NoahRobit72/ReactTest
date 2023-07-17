@@ -3,7 +3,10 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore"
 import { getAuth } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set} from "firebase/database";
+import { collection } from 'firebase/firestore';
+import { query, onSnapshot } from "firebase/firestore";
+// import { db } from './firebase'; // Assuming you have already initialized the Firebase app and have access to the Firestore database instance
 
 
 
@@ -27,7 +30,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const FSDB = getFirestore(app)
 export const auth = getAuth(app);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 
 // Function to make ID
@@ -71,3 +74,20 @@ export async function signUpUser(name,email,password){
   });
 
 }
+
+export const subscribeToLabUpdates = (collegeName, setLabs) => {
+  const q = query(collection(db, collegeName));
+  const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    const labs = [];
+    querySnapshot.forEach((doc) => {
+      labs.push({ id: doc.id, ...doc.data() });
+    });
+    setLabs(labs);
+  });
+
+  return unsubscribe; // Return the unsubscribe function
+};
+
+
+
+

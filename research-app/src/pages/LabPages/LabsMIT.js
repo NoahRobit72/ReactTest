@@ -23,6 +23,7 @@ function LabsBU() {
     return unsubscribe;
   }, []);
 
+
   const labElements = labs.map((lab) => (
     <div className="Lab-Blocks" key={lab.id}>
     <Link className="Linked-Block" to={`/LabsBU/${collegeName}/${lab.id}`}>
