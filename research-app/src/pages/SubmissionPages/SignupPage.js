@@ -13,12 +13,11 @@ import { signUpUser } from "../../firebase_setup/firebase";
 
 export function SignupPage() {
     return (
-        <div className="formLogin"> 
-            <Auth />
-
+      <div className="signup-container">
+        <h1>Create an Account</h1>
+        <div className="signup-form">
+          <Auth />
         </div>
-
+      </div>
     );
-
-}
-
+  }
