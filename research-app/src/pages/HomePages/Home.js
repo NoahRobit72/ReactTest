@@ -1,69 +1,61 @@
-import React from "react"
-import Header from "../../components/Header"
-//import Footer from "../../components/Footer"
 import Slogan from "../../components/Slogan"
-import TextField from '@mui/material/TextField';
+import Header from "../../components/Header"
 import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
+import React, { useEffect, useState } from "react";
+import { Autocomplete } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-// import {addReview} from "../../firebase_setup/firebase" commeed out for now, use for testing
-//import {writeUserData} from "../../firebase_setup/firebase"
-import { useEffect } from 'react';
-import "../../css/Home.css"
+import { collection, getDocs } from "firebase/firestore";
+import { FSDB } from "../../firebase_setup/firebase";
+import { TextField } from "@mui/material";
+import "../../css/Home.css";
 
-// This is the home page
 export default function Home() {
-    const top5Songs = [
-        { label: 'Boston University'},
-        { label: 'Northeastern'},
-        { label: 'MIT'},
-    ];
+  const [universities, setUniversities] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate(false);
-    const [value, setValue] = React.useState('');
-    const [inputValue, setInputValue] = React.useState('');
+  useEffect(() => {
+    async function fetchUniversities() {
+      try {
+        const universitiesSnapshot = await getDocs(collection(FSDB, "Universities"));
+        const universitiesData = universitiesSnapshot.docs.map((doc) => doc.data());
+        setUniversities(universitiesData);
+      } catch (error) {
+        console.error("Error fetching universities: ", error);
+      }
+    }
 
-    useEffect(() => {
-        if(value.label !== ''){
-            switch (value.label) {
-                case "Boston University":
-                    navigate("/LabsBU");
-                    break;
-                case "MIT":
-                    navigate("/LabsMIT");
-                    break;
-                case "Northeastern":
-                    navigate("/LabsNU");
-                    break;
-                default:
-                    break
-              }
-        }
-      }, [value,navigate]);
+    fetchUniversities();
+  }, []);
 
-    return (
+  const handleOptionChange = (event, newValue) => {
+    setSelectedOption(newValue);
+  };
+
+  useEffect(() => {
+    if (selectedOption) {
+      navigate(`/labs/${selectedOption.name}`);
+    }
+  }, [selectedOption, navigate]);
+
+  return (
+
     <div className="about-page-container">
         <Header/>
         <Slogan/>
         <Stack className="searchbar" spacing={2} sx={{ width: '80%',display: 'flex', justifyContent: 'center', paddingLeft: '10%'}}>
-            <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={top5Songs}
-                renderInput={(params) => <TextField {...params} label="Your School" />}
-                value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
-                inputValue={inputValue}
-                onInputChange={(event, newInputValue) => {
-                  setInputValue(newInputValue);
-                }}
-            />
+      {/* ... (Header and Slogan components) */}
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={universities}
+        getOptionLabel={(option) => (option && option.name) || ""}
+        renderInput={(params) => <TextField {...params} label="Your School" />}
+        value={selectedOption}
+        onChange={handleOptionChange}
+      />
         </Stack>
-        <div className="strip">
-
-        </div>
+      <div className="strip"></div>
     </div>
-    )
-  }
+  );
+}

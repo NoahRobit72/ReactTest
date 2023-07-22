@@ -7,7 +7,7 @@ export const Auth = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
+        //regular sign in with email and password 
         const signIn = async () => {
             try {
             await createUserWithEmailAndPassword(auth, email, password);
@@ -15,7 +15,7 @@ export const Auth = () => {
                 console.error(err)
             }
      };
-
+     //sign in with google 
      const signInWithGoogle = async () => {
         try {
         await signInWithPopup(auth, googleProvider);
@@ -24,6 +24,8 @@ export const Auth = () => {
         }
  };
 
+ /*
+    //logout functionality
     const logout = async () => {
         try {
         await signOut(auth);
@@ -31,7 +33,7 @@ export const Auth = () => {
             console.error(err)
         }
 };
-
+*/
 
     return (
         <div> 
@@ -46,7 +48,7 @@ export const Auth = () => {
 
             <button onClick = {signInWithGoogle}> Sign In With Google </button>
 
-            <button onClick={logout}> Logout  </button>
+            {/* <button onClick={logout}> Logout  </button> */}
         </div>
     );
 };

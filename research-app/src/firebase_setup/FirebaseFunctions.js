@@ -1,22 +1,40 @@
-import FSDB from "../firebase_setup/firebase";
+/*
+import React, { useEffect, useState } from "react";
+import {db, FSDB} from "../firebase_setup/firebase.js"
 import { collection, getDocs } from "firebase/firestore";
 
 
 
-function getSchools(data) {
-    const documentIds = data.map((item) => item.id);
-    console.log("Document IDs:", documentIds);
-    // Additional processing or actions with the document IDs can be performed here
-  }
-  
 
-const getSchoolsFromFirebase = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(FSDB, "Universities"));
-    const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    getSchools(data);
-    console.log("Schools:", data); // Print the schools data
-  } catch (error) {
-    console.log("Error getting documents: ", error);
-  }
-};
+
+
+export function SchoolList() {
+  const [universityList, setUniversityList] = useState([]);
+
+  useEffect(() => {
+    const getUniversityList = async () => {
+      try {
+        const universitiesCollectionRef = collection(FSDB, "Universities");
+        const data = await getDocs(universitiesCollectionRef);
+        // Process the data and update the university list
+        setUniversityList(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getUniversityList();
+  }, []);
+
+  // Render the school list component
+  return (
+    <div>
+      {universityList.map((university) => (
+        <div key={university.id}>{university.name}</div>
+      ))}
+    </div>
+  );
+}
+
+export default SchoolList;
+*/
