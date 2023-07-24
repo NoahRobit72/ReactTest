@@ -13,6 +13,7 @@ function LabsPage() {
     async function fetchLabsData() {
       try {
         const universityDocRef = doc(FSDB, "Universities", selectedOption);
+        console.log("Fetching labs data for:", selectedOption); // Log the selected university
         const labsSnapshot = await getDocs(collection(universityDocRef, "Labs"));
         const labsData = labsSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setLabsData(labsData);
@@ -25,20 +26,22 @@ function LabsPage() {
     if (selectedOption) {
       fetchLabsData();
     }
-  }, [selectedOption]);
+  }, [selectedOption]
+  );
+
+  const labElements = labsData.map((lab) => (
+    <div className="lab-item" key={lab.id}>
+      <h3>{lab.Name}</h3>
+      <p><strong>Lab Field:</strong> {lab.Field}</p> {/* Display Lab Field category */}
+      <p><strong>Professor:</strong> {lab.Professor}</p> {/* Display Professor category */}
+    </div>
+  ))
 
   return (
     <div className="labs-page-container">
       <h2>{selectedOption ? `${selectedOption} Labs` : "All Labs"}</h2>
-
       <div className="labs-list">
-        {labsData.map((lab) => (
-          <div className="lab-item" key={lab.id}>
-            <h3>{lab.Name}</h3>
-            <p><strong>Lab Field:</strong> {lab.Field}</p> {/* Display Lab Field category */}
-            <p><strong>Professor:</strong> {lab.Professor}</p> {/* Display Professor category */}
-          </div>
-        ))}
+        {labElements}
       </div>
     </div>
   );

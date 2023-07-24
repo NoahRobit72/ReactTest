@@ -34,7 +34,7 @@ export default function Home() {
 
   useEffect(() => {
     if (selectedOption) {
-      navigate(`/labs/${selectedOption.name}`);
+      navigate(`/labs/${selectedOption.Name}`);
     }
   }, [selectedOption, navigate]);
 
@@ -49,7 +49,7 @@ export default function Home() {
         disablePortal
         id="combo-box-demo"
         options={universities}
-        getOptionLabel={(option) => (option && option.name) || ""}
+        getOptionLabel={(option) => (option && option.Name) || ""}
         renderInput={(params) => <TextField {...params} label="Your School" />}
         value={selectedOption}
         onChange={handleOptionChange}
