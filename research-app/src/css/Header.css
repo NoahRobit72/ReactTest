@@ -34,3 +34,33 @@ p.insertName {
     margin-top: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.addLab{
+    /* height: 50px; */
+    color: black;
+    background-color: rgb(55, 160, 209);
+    font-weight: 800;
+    margin-right: .5in;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+}
+
+.request{
+    text-align: center;
+}
+
+.buttonBox{
+    display: flex;
+    height: 100%;
+}
+
+img {
+    /* object-fit: contain; */
+    /* vertical-align: middle; */
+    margin: auto;
+    height: 17px;
+    margin-right: 8px;
+  }

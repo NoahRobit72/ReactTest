@@ -11,7 +11,7 @@
     cursor: pointer;
     transition: transform .1s ease-in-out;
     margin: 1in;
-    background-color: rgb(66, 127, 206); /* Green */
+    background-color: rgb(66, 127, 206); 
 }
 
 .link-button:hover {
@@ -29,4 +29,6 @@
     border-color: white;
     background-color: rgb(76, 188, 240);
 }
+
+
 
