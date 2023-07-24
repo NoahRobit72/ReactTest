@@ -17,7 +17,9 @@
   /* Lab item style */
   .lab-item {
     border: 1px solid #ccc;
+    text-decoration: none;
     padding: 20px;
+    margin-top: 15px;
     margin-bottom: 15px;
     background-color: #f9f9f9;
     border-radius: 5px;
@@ -27,6 +29,7 @@
   h3 {
     font-size: 20px;
     margin-bottom: 10px;
+    margin-top: 10px;
   }
   
   /* Lab category style */
@@ -44,4 +47,12 @@
     list-style-type: none;
     padding: 0;
   }
+
+  .Linked-Block{
+    border: none;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+
+}
   

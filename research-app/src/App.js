@@ -20,12 +20,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<HomeLoggedIn/>} />
         <Route path="/labs/:selectedOption" element={<LabsPage />} />
-        {/* <Route path="/LabsBU" element={<LabsBU />} />
-        <Route path="/LabsMIT" element={<LabsMIT />} />
-        <Route path="/LabsNU" element={<LabsNU />} /> */}
         <Route path="/login" element={<LoginPage/>} />
-        <Route path="/LabsBU/:collegeName/:labId" element={<LabReviews />} />
-        <Route path="/LabsBU/:id" element={<LabReviews/>} /> 
+        <Route path="/labs/:collegeName/:labId" element={<LabReviews />} />
+        {/* <Route path="/LabsBU/:collegeName/:labId" element={<LabReviews />} /> */}
+        {/* <Route path="/LabsBU/:id" element={<LabReviews/>} />  */}
         {/* <Route path="/LabsBU/:id" element={<LabReviewsTest/>} />  */}
         <Route path="/ReviewInput/:id" element={<InputSubmission/>} />
         <Route path="/signup" element={<SignupPage/>} />

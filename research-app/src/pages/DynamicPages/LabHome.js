@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link to use for navigation
 import { collection, doc, getDocs, getFirestore } from "firebase/firestore"; // Import Firestore functions to fetch data
 import { FSDB } from "../../firebase_setup/firebase"; // Assuming you have initialized Firestore as FSDB
 import "../../css/LabPages.css";
@@ -31,9 +32,11 @@ function LabsPage() {
 
   const labElements = labsData.map((lab) => (
     <div className="lab-item" key={lab.id}>
+    <Link className="Linked-Block" to={`/labs/${selectedOption}/${lab.id}`}>
       <h3>{lab.Name}</h3>
       <p><strong>Lab Field:</strong> {lab.Field}</p> {/* Display Lab Field category */}
       <p><strong>Professor:</strong> {lab.Professor}</p> {/* Display Professor category */}
+    </Link>
     </div>
   ))
 
