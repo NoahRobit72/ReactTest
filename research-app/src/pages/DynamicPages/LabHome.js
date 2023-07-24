@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"; // Import Link to use for navigation
 import { collection, doc, getDocs, } from "firebase/firestore"; // Import Firestore functions to fetch data
 import { FSDB } from "../../firebase_setup/firebase"; // Assuming you have initialized Firestore as FSDB
 import "../../css/LabPages.css";
+import HeaderLab from "../../components/HeaderLab";
 
 function LabsPage() {
   const { selectedOption } = useParams();
@@ -41,11 +42,14 @@ function LabsPage() {
   ))
 
   return (
-    <div className="labs-page-container">
-      <h2>{selectedOption ? `${selectedOption} Labs` : "All Labs"}</h2>
-      <div className="labs-list">
-        {labElements}
-      </div>
+    <div>
+      <HeaderLab />
+        <div className="labs-page-container">
+          <h2>{selectedOption ? `${selectedOption} Labs` : "All Labs"}</h2>
+          <div className="labs-list">
+            {labElements}
+          </div>
+        </div>
     </div>
   );
 }
