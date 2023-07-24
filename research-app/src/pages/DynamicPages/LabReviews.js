@@ -5,17 +5,17 @@ import "../../css/LabReviews.css";
 import { getLabReviews } from "../../Handles/LabReviewQuerey";
 import ReviewTemplate from "./ReviewTemplate";
 
-
 // This page is for displaying all the reviews for a specific lab
 function LabReviews() {
   const { labId, collegeName } = useParams();
   const [reviews, setReviews] = useState([]);
 
-  console.log(collegeName)
-
   useEffect(() => {
+    // Fetch lab reviews for the specific lab
     const unsubscribe = getLabReviews(collegeName, labId, setReviews);
-    return unsubscribe;
+    
+    // Cleanup the subscription when the component unmounts
+    return () => unsubscribe();
   }, [collegeName, labId]);
 
   const reviewElements = reviews.map((review) => {
@@ -29,7 +29,7 @@ function LabReviews() {
     }
     return (
       <div className="reviews-tile" key={review.id}>
-        <ReviewTemplate 
+        <ReviewTemplate
           position={review.Position}
           rating={review.Rating}
           comment={review.Review}

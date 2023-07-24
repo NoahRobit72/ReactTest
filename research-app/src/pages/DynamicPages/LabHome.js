@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom"; // Import Link to use for navigation
-import { collection, doc, getDocs, getFirestore } from "firebase/firestore"; // Import Firestore functions to fetch data
+import { collection, doc, getDocs, } from "firebase/firestore"; // Import Firestore functions to fetch data
 import { FSDB } from "../../firebase_setup/firebase"; // Assuming you have initialized Firestore as FSDB
 import "../../css/LabPages.css";
 
