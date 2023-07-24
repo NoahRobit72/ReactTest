@@ -11,6 +11,7 @@ import HomeLoggedIn from './pages/HomePages/HomeLoggedIn';
 import { InputSubmission } from './pages/SubmissionPages/InputSubmission';
 import { SignupPage } from './pages/SubmissionPages/SignupPage';
 import LabsPage from "./pages/DynamicPages/LabHome";
+import BlankPage from "./pages/SubmissionPages/BlankPage";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         {/* <Route path="/LabsBU/:id" element={<LabReviewsTest/>} />  */}
         <Route path="/ReviewInput/:id" element={<InputSubmission/>} />
         <Route path="/signup" element={<SignupPage/>} />
+        <Route path="/blank" element={<BlankPage/>} />
         
       </Routes>
     </BrowserRouter>

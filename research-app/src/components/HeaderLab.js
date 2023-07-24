@@ -8,13 +8,14 @@ function HeaderLab() {
     <header>
     <Link className="site-logo" to="/">ResearchReviews.com</Link>
     <nav>
-      {/* <Link to="/login">Login</Link> */}
+    <Link className="Linked-button" to={`/blank`}>
       <button className="addLab">
         <div className="buttonBox">
           <img src={plusLogo} alt="BigCo Inc. logo"/>
           <p className="request">Add a Review</p>
         </div>
       </button>
+      </Link>
     </nav>
   </header>
   );
