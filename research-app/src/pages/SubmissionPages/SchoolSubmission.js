@@ -3,6 +3,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase_setup/firebase";
 import "../../css/SchoolSubmission.css"; // Assuming you have a CSS file for styling
 import { useNavigate } from "react-router-dom";
+import HeaderBlank from "../../components/HeaderBlank";
 
 
 function SchoolSubmission() {
@@ -28,6 +29,8 @@ function SchoolSubmission() {
   };
 
   return (
+    <div>
+      <HeaderBlank />
     <div className="submission-container">
       {isSubmitted ? (
         <p className="submission-message">School submitted for review!</p>
@@ -40,6 +43,7 @@ function SchoolSubmission() {
           </form>
         </div>
       )}
+    </div>
     </div>
   );
 }
