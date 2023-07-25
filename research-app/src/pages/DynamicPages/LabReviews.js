@@ -35,6 +35,7 @@ function LabReviews() {
           rating={review.Rating}
           comment={review.Review}
           badgeColor={badgeColor}
+          
         />
       </div>
     );
