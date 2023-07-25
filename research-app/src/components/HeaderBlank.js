@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-import plusLogo from "../static/plus.png"
 
 import '../css/Header.css';
 
