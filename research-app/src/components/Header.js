@@ -10,7 +10,7 @@ function Header() {
     <Link className="site-logo" to="/">ResearchReviews.com</Link>
     <nav>
       {/* <Link to="/login">Login</Link> */}
-      <Link className="Linked-Block" to={`/blank`}>
+      <Link className="Linked-Block" to={`/SchoolSubmission`}>
       <button className="addLab">
         <div className="buttonBox">
           <img src={plusLogo} alt="BigCo Inc. logo"/>

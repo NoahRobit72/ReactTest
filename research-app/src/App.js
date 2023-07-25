@@ -9,6 +9,7 @@ import { InputSubmission } from './pages/SubmissionPages/InputSubmission';
 import { SignupPage } from './pages/SubmissionPages/SignupPage';
 import LabsPage from "./pages/DynamicPages/LabHome";
 import BlankPage from "./pages/SubmissionPages/BlankPage";
+import SchoolSubmission from './pages/SubmissionPages/SchoolSubmission';
 import { useLocation } from "react-router-dom"; // Add this line to import useLocation
 
 
@@ -25,6 +26,8 @@ function App() {
         <Route path="/ReviewInput/:id" element={<InputSubmission/>} />
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/blank" element={<BlankPage/>} />
+        <Route path="/blank" element={<BlankPage/>} />
+        <Route path="/SchoolSubmission" element={<SchoolSubmission/>} />
         
       </Routes>
     </BrowserRouter>
