@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
-import { getDocs, collection, addDoc } from "firebase/firestore";
+import { getDocs, collection, addDoc, setDoc, doc } from "firebase/firestore";
 import { FSDB } from "../../firebase_setup/firebase";
 import "../../css/BlankPage.css";
-
-
 
 function BlankPage() {
   const location = useLocation();
@@ -13,56 +11,58 @@ function BlankPage() {
   const selectedOption = searchParams.get("selectedOption");
   const labId = searchParams.get("labId");
 
-  const [labName, setLabName] = useState("");
-  const [labField, setlabField] = useState("");
-  const [labProfessor, setlabProfessor] = useState("");
-  const [position, setPosition] = useState("");
-  const [rating, setRating] = useState("");
-  const [review, setReview] = useState("");
+  const [Name, setLabName] = useState("");
+  const [Field, setlabField] = useState("");
+  const [Professor, setlabProfessor] = useState("");
+  const [Position, setPosition] = useState("");
+  const [Rating, setRating] = useState("");
+  const [Review, setReview] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Validate required fields
-    if (!labName || !labField || !labProfessor || !position || !rating || !review) {
+    if (!Name || !Field || !Professor || !Position || !Rating || !Review) {
       alert("Please fill in all required fields.");
       return;
     }
-  
+
     try {
       // Check if the lab already exists under the selectedOption
       const labRef = collection(FSDB, "Universities", selectedOption, "Labs");
       const querySnapshot = await getDocs(labRef);
-      const existingLab = querySnapshot.docs.find((doc) => doc.data().LabName === labName);
-  
+      const existingLab = querySnapshot.docs.find((doc) => doc.data().Name === Name);
+
       if (existingLab) {
         // If the lab exists, get its ID
         const labId = existingLab.id;
+
         // Add the review data to the Reviews sub-collection under the existing lab document
-        await addDoc(collection(labRef.doc(labId), "Reviews"), {
-          Position: position,
-          Rating: rating,
-          Review: review,
+        await addDoc(collection(FSDB, "Universities", selectedOption, "Labs", labId, "Reviews"), {
+          Position: Position,
+          Rating: Rating,
+          Review: Review,
         });
       } else {
         // If the lab does not exist, create a new lab document with the provided fields
         const newLabData = {
-          Name: labName,
-          Field: labField,
-          Professor: labProfessor,
+          Name: Name,
+          Field: Field,
+          Professor: Professor,
         };
-        const newLabDoc = await addDoc(labRef, newLabData);
-  
+
+        const newLabRef = await addDoc(collection(FSDB, "Universities", selectedOption, "Labs"), newLabData);
+
         // Add the review data to the Reviews sub-collection under the new lab document
-        await addDoc(collection(newLabDoc, "Reviews"), {
-          Position: position,
-          Rating: rating,
-          Review: review,
+        await addDoc(collection(newLabRef, "Reviews"), {
+          Position: Position,
+          Rating: Rating,
+          Review: Review,
         });
       }
-  
+
       // Reset form fields after successful submission
       setLabName("");
       setlabField("");
@@ -70,7 +70,7 @@ function BlankPage() {
       setPosition("");
       setRating("");
       setReview("");
-  
+
       // Navigate back to the LabsPage after submission
       navigate(`/labs/${selectedOption}`);
     } catch (error) {
@@ -92,7 +92,7 @@ function BlankPage() {
               required
               fullWidth
               label="Lab Name"
-              value={labName}
+              value={Name}
               onChange={(e) => setLabName(e.target.value)}
               margin="normal"
             />
@@ -100,7 +100,7 @@ function BlankPage() {
               required
               fullWidth
               label="Field"
-              value={labField}
+              value={Field}
               onChange={(e) => setlabField(e.target.value)}
               margin="normal"
             />
@@ -108,7 +108,7 @@ function BlankPage() {
               required
               fullWidth
               label="Professor"
-              value={labProfessor}
+              value={Professor}
               onChange={(e) => setlabProfessor(e.target.value)}
               margin="normal"
             />
@@ -116,7 +116,7 @@ function BlankPage() {
               required
               fullWidth
               label="Position"
-              value={position}
+              value={Position}
               onChange={(e) => setPosition(e.target.value)}
               margin="normal"
             />
@@ -125,7 +125,7 @@ function BlankPage() {
               fullWidth
               label="Rating"
               type="number"
-              value={rating}
+              value={Rating}
               onChange={(e) => setRating(e.target.value)}
               margin="normal"
             />
@@ -135,7 +135,7 @@ function BlankPage() {
               label="Review"
               multiline
               rows={4}
-              value={review}
+              value={Review}
               onChange={(e) => setReview(e.target.value)}
               margin="normal"
             />
@@ -150,3 +150,13 @@ function BlankPage() {
 }
 
 export default BlankPage;
+
+
+
+
+//        const docRef = doc(FSDB, "Universities", selectedOption, "Labs", Name) //Name is going to be set as the document ID
+// await addDoc(collection(docRef, "Reviews"), {
+//   Position: Position,
+//   Rating: Rating,
+//   Review: Review,
+// });

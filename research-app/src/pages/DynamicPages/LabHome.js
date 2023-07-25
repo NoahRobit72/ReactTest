@@ -31,7 +31,7 @@ function LabsPage() {
   }, [selectedOption]);
 
   const labElements = labsData.map((lab) => (
-    <div className="lab-item" key={lab.id}>
+    <div className="lab-item" key={lab.Name}>
     <Link className="Linked-Block" to={`/labs/${selectedOption}/${lab.id}`}>
       <h3>{lab.Name}</h3>
       <p><strong>Lab Field:</strong> {lab.Field}</p> {/* Display Lab Field category */}
