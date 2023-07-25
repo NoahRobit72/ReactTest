@@ -4,6 +4,7 @@ import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabReviews.css";
 import { getLabReviews } from "../../Handles/LabReviewQuerey";
 import ReviewTemplate from "./ReviewTemplate";
+import HeaderReview from "../../components/HeaderReview";
 
 // This page is for displaying all the reviews for a specific lab
 function LabReviews() {
@@ -41,7 +42,7 @@ function LabReviews() {
 
   return (
     <div>
-      <HeaderSchool />
+      <HeaderReview />
       <h1 className="LabHeader">{labId}</h1>
       {reviewElements}
     </div>

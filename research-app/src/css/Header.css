@@ -1,5 +1,5 @@
 
-  header {
+header {
     background-color: rgb(119, 116, 116);
     color: rgb(255, 255, 255);
     height: 75px;
@@ -7,45 +7,27 @@
     align-items: center;
 }
 
-header .site-logo {
+.site-logo {
     color: black;
     margin-right: auto;
     margin-left: .5in;
     font-weight: 900;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
-
-}
-
-header a {
     text-decoration: none;
-    color: black;
-    font-weight: 800;
-    margin-right: 1in;
-    font-family: Arial, Helvetica, sans-serif;
 
 }
-
-p.insertName {
-    text-decoration: none;
-    color: black;
-    font-weight: 800;
-    margin-right: 1in;
-    margin-top: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 
 .addLab{
     /* height: 50px; */
     color: black;
     background-color: rgb(55, 160, 209);
     font-weight: 800;
-    margin-right: .5in;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     width: 150px;
+    margin-right: 30px;
 }
 
 .request{
@@ -58,8 +40,6 @@ p.insertName {
 }
 
 img {
-    /* object-fit: contain; */
-    /* vertical-align: middle; */
     margin: auto;
     height: 17px;
     margin-right: 8px;
