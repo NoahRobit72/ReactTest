@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import HeaderSchool from "../../components/HeaderSchool";
 import "../../css/LabReviews.css";
 import { getLabReviews } from "../../Handles/LabReviewQuerey";
 import ReviewTemplate from "./ReviewTemplate";

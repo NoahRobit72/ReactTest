@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
-import { getDocs, collection, addDoc, setDoc, doc } from "firebase/firestore";
+import { getDocs, collection, addDoc} from "firebase/firestore";
 import { FSDB } from "../../firebase_setup/firebase";
 import "../../css/BlankPage.css";
 
@@ -9,7 +9,6 @@ function BlankPage() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const selectedOption = searchParams.get("selectedOption");
-  const labId = searchParams.get("labId");
 
   const [Name, setLabName] = useState("");
   const [Field, setlabField] = useState("");

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom"; // Import useLocation
+import { useParams, Link } from "react-router-dom"; // Import useLocation
 import { collection, doc, getDocs } from "firebase/firestore";
 import { FSDB } from "../../firebase_setup/firebase";
 import "../../css/LabPages.css";
@@ -8,8 +8,6 @@ import HeaderLab from "../../components/HeaderLab";
 function LabsPage() {
   const { selectedOption } = useParams();
   const [labsData, setLabsData] = useState([]);
-  const navigate = useNavigate();
-  const location = useLocation(); // Use useLocation hook to access the query parameter
 
   useEffect(() => {
     async function fetchLabsData() {

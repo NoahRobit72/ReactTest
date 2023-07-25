@@ -10,7 +10,6 @@ import { SignupPage } from './pages/SubmissionPages/SignupPage';
 import LabsPage from "./pages/DynamicPages/LabHome";
 import BlankPage from "./pages/SubmissionPages/BlankPage";
 import SchoolSubmission from './pages/SubmissionPages/SchoolSubmission';
-import { useLocation } from "react-router-dom"; // Add this line to import useLocation
 
 
 
