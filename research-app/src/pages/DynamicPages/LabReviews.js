@@ -14,7 +14,7 @@ function LabReviews() {
   useEffect(() => {
     // Fetch lab reviews for the specific lab
     const unsubscribe = getLabReviews(collegeName, labId, setReviews);
-    
+    console.log("college name", collegeName)
     // Cleanup the subscription when the component unmounts
     return () => unsubscribe();
   }, [collegeName, labId]);
@@ -42,7 +42,7 @@ function LabReviews() {
 
   return (
     <div>
-      <HeaderReview labId={labId} /> {/* Pass the labId prop here */}
+      <HeaderReview labId={labId} collegeName={collegeName} />
       <h1 className="LabHeader">{labId}</h1>
       {reviewElements}
     </div>
