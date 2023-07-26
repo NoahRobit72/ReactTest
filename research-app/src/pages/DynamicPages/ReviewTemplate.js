@@ -11,9 +11,8 @@ function ReviewTemplate(props) {
 		</div>
 		<div className="text">
             <div className="name-date">
-				<p><strong>{props.position}</strong></p>
-				<p>May 21st</p>
-			</div> <p>{props.comment}</p>
+				<p><strong>Position: </strong>{props.position}</p>
+			</div> <p><strong>Review: </strong>{props.comment}</p>
 		</div>
 	</div>
   );

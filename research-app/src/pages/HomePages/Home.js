@@ -1,6 +1,7 @@
 import Slogan from "../../components/Slogan"
 import Header from "../../components/Header"
 import Stack from '@mui/material/Stack';
+import Footer from "../../components/Footer";
 import React, { useEffect, useState } from "react";
 import { Autocomplete } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -41,21 +42,24 @@ export default function Home() {
   return (
 
     <div className="about-page-container">
-        <Header/>
-        <Slogan/>
-        <Stack className="searchbar" spacing={2} sx={{ width: '80%',display: 'flex', justifyContent: 'center', paddingLeft: '10%'}}>
-      {/* ... (Header and Slogan components) */}
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={universities}
-        getOptionLabel={(option) => (option && option.Name) || ""}
-        renderInput={(params) => <TextField {...params} label="Your School" />}
-        value={selectedOption}
-        onChange={handleOptionChange}
-      />
-        </Stack>
-      <div className="strip"></div>
+      <Header/>
+      <Slogan/>
+      <Stack className="searchbar" spacing={2} sx={{ width: '80%',display: 'flex', justifyContent: 'center', paddingLeft: '10%', paddingBottom: '100px'}}>
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={universities}
+          getOptionLabel={(option) => (option && option.Name) || ""}
+          renderInput={(params) => <TextField {...params} label="Your School" />}
+          value={selectedOption}
+          onChange={handleOptionChange}
+        />
+      </Stack>
+      <div className="strip">
+          <p className="quote1">For Research Students </p>
+          <p className="quote2">By Research Students</p>
+      </div>
+      <Footer/>
     </div>
   );
 }
