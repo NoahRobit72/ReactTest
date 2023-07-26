@@ -30,6 +30,7 @@ function BlankPage() {
   
     try {
       // Create a new lab document with the Name field as the document ID
+      const ratingValue = Math.min(Math.max(parseFloat(Rating), 0), 5);
       const labRef = doc(FSDB, "Universities", selectedOption, "Labs", Name);
   
       // Set the lab data in the new document
@@ -42,7 +43,7 @@ function BlankPage() {
       // Add the review data to the Reviews sub-collection under the new lab document
       await addDoc(collection(labRef, "Reviews"), {
         Position: Position,
-        Rating: Rating,
+        Rating: ratingValue,
         Review: Review,
       });
   
@@ -107,7 +108,7 @@ function BlankPage() {
             <TextField
               required
               fullWidth
-              label="Rating"
+              label="Rating out of 5"
               type="number"
               value={Rating}
               onChange={(e) => setRating(e.target.value)}

@@ -23,6 +23,8 @@ function InputSubmissionFromReviewsPage() { // Receive selectedOption as a prop
       alert("Please fill in all required fields.");
       return;
     }
+
+    const ratingValue = Math.min(Math.max(parseFloat(Rating), 0), 5);
     const labRef = doc(FSDB, "Universities", collegeName, "Labs", labId);
 
     try {
@@ -33,7 +35,7 @@ function InputSubmissionFromReviewsPage() { // Receive selectedOption as a prop
       // Add the review data to the Reviews sub-collection under the new lab document
       await addDoc(collection(labRef, "Reviews"), {
         Position: Position,
-        Rating: Rating,
+        Rating: ratingValue,
         Review: Review,
       });
 
@@ -68,7 +70,7 @@ function InputSubmissionFromReviewsPage() { // Receive selectedOption as a prop
             <TextField
               required
               fullWidth
-              label="Rating"
+              label="Rating out of 5"
               type="number"
               value={Rating}
               onChange={(e) => setRating(e.target.value)}
