@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
-import { getDocs, collection, addDoc} from "firebase/firestore";
+import { setDoc, collection, addDoc, doc} from "firebase/firestore";
 import { FSDB } from "../../firebase_setup/firebase";
 import "../../css/BlankPage.css";
 
@@ -21,47 +21,31 @@ function BlankPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Validate required fields
     if (!Name || !Field || !Professor || !Position || !Rating || !Review) {
       alert("Please fill in all required fields.");
       return;
     }
-
+  
     try {
-      // Check if the lab already exists under the selectedOption
-      const labRef = collection(FSDB, "Universities", selectedOption, "Labs");
-      const querySnapshot = await getDocs(labRef);
-      const existingLab = querySnapshot.docs.find((doc) => doc.data().Name === Name);
-
-      if (existingLab) {
-        // If the lab exists, get its ID
-        const labId = existingLab.id;
-
-        // Add the review data to the Reviews sub-collection under the existing lab document
-        await addDoc(collection(FSDB, "Universities", selectedOption, "Labs", labId, "Reviews"), {
-          Position: Position,
-          Rating: Rating,
-          Review: Review,
-        });
-      } else {
-        // If the lab does not exist, create a new lab document with the provided fields
-        const newLabData = {
-          Name: Name,
-          Field: Field,
-          Professor: Professor,
-        };
-
-        const newLabRef = await addDoc(collection(FSDB, "Universities", selectedOption, "Labs"), newLabData);
-
-        // Add the review data to the Reviews sub-collection under the new lab document
-        await addDoc(collection(newLabRef, "Reviews"), {
-          Position: Position,
-          Rating: Rating,
-          Review: Review,
-        });
-      }
-
+      // Create a new lab document with the Name field as the document ID
+      const labRef = doc(FSDB, "Universities", selectedOption, "Labs", Name);
+  
+      // Set the lab data in the new document
+      await setDoc(labRef, {
+        Name: Name,
+        Field: Field,
+        Professor: Professor,
+      });
+  
+      // Add the review data to the Reviews sub-collection under the new lab document
+      await addDoc(collection(labRef, "Reviews"), {
+        Position: Position,
+        Rating: Rating,
+        Review: Review,
+      });
+  
       // Reset form fields after successful submission
       setLabName("");
       setlabField("");
@@ -69,13 +53,14 @@ function BlankPage() {
       setPosition("");
       setRating("");
       setReview("");
-
+  
       // Navigate back to the LabsPage after submission
       navigate(`/labs/${selectedOption}`);
     } catch (error) {
       console.error("Error adding review: ", error);
     }
   };
+  
   
   
 
