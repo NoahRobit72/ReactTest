@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
 import { collection, addDoc, doc } from "firebase/firestore";
 import { FSDB } from "../../firebase_setup/firebase";
+import HeaderBlank from "../../components/HeaderBlank";
 
 function InputSubmissionFromReviewsPage() { // Receive selectedOption as a prop
     const { labId, collegeName } = useParams(); // Access collegeName from the URL parameters
@@ -52,6 +53,8 @@ function InputSubmissionFromReviewsPage() { // Receive selectedOption as a prop
   };
 
   return (
+    <div>
+      <HeaderBlank />
     <div className="signup-container">
       <Container maxWidth="sm">
         <Box sx={{ my: 4, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -92,6 +95,7 @@ function InputSubmissionFromReviewsPage() { // Receive selectedOption as a prop
           </Box>
         </Box>
       </Container>
+    </div>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { TextField, Button, Typography, Container, Box } from "@mui/material";
 import { setDoc, collection, addDoc, doc} from "firebase/firestore";
 import { FSDB } from "../../firebase_setup/firebase";
 import "../../css/BlankPage.css";
+import HeaderBlank from "../../components/HeaderBlank";
 
 function BlankPage() {
   const location = useLocation();
@@ -66,6 +67,8 @@ function BlankPage() {
   
 
   return (
+    <div>
+      <HeaderBlank/>
     <div className="signup-container">
       <Container maxWidth="sm">
         <Box sx={{ my: 4, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -130,6 +133,7 @@ function BlankPage() {
           </Box>
         </Box>
       </Container>
+    </div>
     </div>
   );
 }
