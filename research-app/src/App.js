@@ -10,6 +10,7 @@ import { SignupPage } from './pages/SubmissionPages/SignupPage';
 import LabsPage from "./pages/DynamicPages/LabHome";
 import BlankPage from "./pages/SubmissionPages/BlankPage";
 import SchoolSubmission from './pages/SubmissionPages/SchoolSubmission';
+import InputSubmissionFromReviewsPage from "./pages/SubmissionPages/InputSubmissionFromReviewsPage"
 
 
 
@@ -18,23 +19,20 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<HomeLoggedIn/>} />
+        <Route path="/:id" element={<HomeLoggedIn />} />
         <Route path="/labs/:selectedOption" element={<LabsPage />} />
-        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/labs/:collegeName/:labId" element={<LabReviews />} />
-        <Route path="/ReviewInput/:id" element={<InputSubmission/>} />
-        <Route path="/signup" element={<SignupPage/>} />
-        <Route path="/blank" element={<BlankPage/>} />
-        <Route path="/blank" element={<BlankPage/>} />
-        <Route path="/SchoolSubmission" element={<SchoolSubmission/>} />
-        
+        <Route path="/ReviewInput/:id" element={<InputSubmission />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/blank" element={<BlankPage />} />
+        <Route path="/SchoolSubmission" element={<SchoolSubmission />} />
+        <Route exact path="/add-review/:labId" element={<InputSubmissionFromReviewsPage />} />
       </Routes>
     </BrowserRouter>
-
-
-
-  )
+  );
 }
+
 
 
 

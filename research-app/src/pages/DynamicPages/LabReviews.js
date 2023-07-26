@@ -1,3 +1,4 @@
+// LabReviews.js
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../css/LabReviews.css";
@@ -34,7 +35,6 @@ function LabReviews() {
           rating={review.Rating}
           comment={review.Review}
           badgeColor={badgeColor}
-          
         />
       </div>
     );
@@ -42,7 +42,7 @@ function LabReviews() {
 
   return (
     <div>
-      <HeaderReview />
+      <HeaderReview labId={labId} /> {/* Pass the labId prop here */}
       <h1 className="LabHeader">{labId}</h1>
       {reviewElements}
     </div>
