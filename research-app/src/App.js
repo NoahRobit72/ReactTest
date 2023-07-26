@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/HomePages/Home"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/HomePages/Home";
 import LabReviews from './pages/DynamicPages/LabReviews';
-// import LabReviewsTest from "./pages/DynamicPages/LabReviewsTest"
 import { LoginPage } from './pages/SubmissionPages/LoginPage';
 import HomeLoggedIn from './pages/HomePages/HomeLoggedIn';
 import { InputSubmission } from './pages/SubmissionPages/InputSubmission';
@@ -10,9 +9,7 @@ import { SignupPage } from './pages/SubmissionPages/SignupPage';
 import LabsPage from "./pages/DynamicPages/LabHome";
 import BlankPage from "./pages/SubmissionPages/BlankPage";
 import SchoolSubmission from './pages/SubmissionPages/SchoolSubmission';
-import InputSubmissionFromReviewsPage from "./pages/SubmissionPages/InputSubmissionFromReviewsPage"
-
-
+import InputSubmissionFromReviewsPage from "./pages/SubmissionPages/InputSubmissionFromReviewsPage";
 
 function App() {
   return (
@@ -27,18 +24,12 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/blank" element={<BlankPage />} />
         <Route path="/SchoolSubmission" element={<SchoolSubmission />} />
-        <Route exact path="/add-review/:labId" element={<InputSubmissionFromReviewsPage />} />
+        {/* Include the collegeName as a URL parameter for the InputSubmissionFromReviewsPage */}
+        <Route exact path="/add-review/:labId/:collegeName" element={<InputSubmissionFromReviewsPage />} />
+        <Route exact path="/lab-reviews/:collegeName/:labId" element={<LabReviews />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-
-
-
 export default App;
-
-
-
-
-
