@@ -46,7 +46,7 @@ export default function Home() {
       {username && <h1> Hi: {username} </h1>}
       <Header/>
       <Slogan/>
-      <Stack className="searchbar" spacing={2} sx={{ width: '80%',display: 'flex', justifyContent: 'center', paddingLeft: '10%', paddingBottom: '100px'}}>
+      <Stack className="searchbar" spacing={2} sx={{ width: '80%',display: 'flex', justifyContent: 'center', paddingLeft: '10%', paddingBottom: '300px'}}>
         <Autocomplete
           disablePortal
           id="combo-box-demo"
