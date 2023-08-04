@@ -18,6 +18,13 @@ function Header() {
         </div>
       </button>
       </Link>
+      <Link className="SignUp-Block" to={`LoginPage`}>
+        <button className="Sign In">
+          <div className="buttonBox">
+          <p className="request">Sign In</p>
+          </div>
+        </button>
+      </Link>
     </nav>
   </header>
   );

@@ -10,6 +10,7 @@ import LabsPage from "./pages/DynamicPages/LabHome";
 import BlankPage from "./pages/SubmissionPages/BlankPage";
 import SchoolSubmission from './pages/SubmissionPages/SchoolSubmission';
 import InputSubmissionFromReviewsPage from "./pages/SubmissionPages/InputSubmissionFromReviewsPage";
+import { Auth } from './components/authentication';
 
 function App() {
   return (
@@ -18,12 +19,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<HomeLoggedIn />} />
         <Route path="/labs/:selectedOption" element={<LabsPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/labs/:collegeName/:labId" element={<LabReviews />} />
         <Route path="/ReviewInput/:id" element={<InputSubmission />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/blank" element={<BlankPage />} />
         <Route path="/SchoolSubmission" element={<SchoolSubmission />} />
+        <Route path="/authentication" element={<Auth />} />
+
+
         {/* Include the collegeName as a URL parameter for the InputSubmissionFromReviewsPage */}
         <Route exact path="/add-review/:labId/:collegeName" element={<InputSubmissionFromReviewsPage />} />
         <Route exact path="/lab-reviews/:collegeName/:labId" element={<LabReviews />} />

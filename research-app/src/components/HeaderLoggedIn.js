@@ -1,11 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-
 import {signOut} from "firebase/auth";
-import { auth } from "../firebase_setup/firebase"
-;
-
-
+import { auth } from "../firebase_setup/firebase";
 import '../css/Header.css';
 
 function HeaderLoggedIn(props) {

@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Footer from "../../components/Footer";
 import React, { useEffect, useState } from "react";
 import { Autocomplete } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { FSDB } from "../../firebase_setup/firebase";
 import { TextField } from "@mui/material";
@@ -13,7 +13,9 @@ import "../../css/Home.css";
 export default function Home() {
   const [universities, setUniversities] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
-  const navigate = useNavigate();
+  const navigate = useNavigate(false);
+  const location = useLocation();
+  const username = new URLSearchParams(location.search).get("username")
 
   useEffect(() => {
     async function fetchUniversities() {
@@ -40,8 +42,8 @@ export default function Home() {
   }, [selectedOption, navigate]);
 
   return (
-
     <div className="about-page-container">
+      {username && <h1> Hi: {username} </h1>}
       <Header/>
       <Slogan/>
       <Stack className="searchbar" spacing={2} sx={{ width: '80%',display: 'flex', justifyContent: 'center', paddingLeft: '10%', paddingBottom: '100px'}}>

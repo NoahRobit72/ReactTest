@@ -10,7 +10,6 @@ import {signInWithEmailAndPassword} from "firebase/auth";
 export function LoginPage() {
 
     const [formData, setFormData] = useState({
-        name: "",
         email: "",
         password: ""
     })
@@ -19,7 +18,7 @@ export function LoginPage() {
     const [showError, setShowError] = useState(false); // initialize state for error message
 
     
-    // Parse the inputs and same them to variables 
+    // Parse the inputs and save them to variables 
     function handleChange(event) {
         const{name,value} = event.target
         setFormData(prevFormData => ({
@@ -30,13 +29,15 @@ export function LoginPage() {
 
     const login = async () => {
         try {
-         const user = await signInWithEmailAndPassword(
+         const userCredential = await signInWithEmailAndPassword(
             auth,
             formData.email,
             formData.password
           );
+          const user = userCredential.user;
           console.log(user);
           return { user };
+
         } catch (error) {
           console.log(error.message);
           return { error };
@@ -48,17 +49,14 @@ export function LoginPage() {
         event.preventDefault()
         const result = await login();
 
-        if(formData.name !== "" & !(result.error)){
-            console.log(result);
-            var sendString = "/" + formData.name
-            navigate(sendString);  
+        if (result.user){
+            navigate(`/?username=${result.user.email}`) //naviagtion to home page after successful login
             setShowError(false);
-        } else{
-            console.log(result.message);
-            setShowError(true);
         }
-
-         
+        else {
+            console.log(result.error.message);
+            setShowError(true);
+        }  
     }
 
     return (
@@ -66,13 +64,6 @@ export function LoginPage() {
         <h2>Login</h2>
     <div className="formLogin" id="loginpage">
         <form onSubmit={handleSubmit}>
-        <input
-                type="text"
-                placeholder="Name - do be deleted"
-                onChange = {handleChange}
-                name="name"
-                value={formData.name}
-            />
             <input
                 type="text"
                 placeholder="Email"

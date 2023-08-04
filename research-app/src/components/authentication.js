@@ -8,7 +8,7 @@ export const Auth = () => {
     const [password, setPassword] = useState("");
 
         //regular sign in with email and password 
-        const signIn = async () => {
+        const signUp = async () => {
             try {
             await createUserWithEmailAndPassword(auth, email, password);
             } catch (err) {
@@ -44,7 +44,7 @@ export const Auth = () => {
             type = "password"
             onChange={(e) => setPassword(e.target.value)} 
             />
-            <button onClick={signIn}> Sign In</button>
+            <button onClick={signUp}> Sign Up</button>
 
             <button onClick = {signInWithGoogle}> Sign In With Google </button>
 
