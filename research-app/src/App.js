@@ -10,14 +10,8 @@ import LabsPage from "./pages/DynamicPages/LabHome";
 import BlankPage from "./pages/SubmissionPages/BlankPage";
 import SchoolSubmission from './pages/SubmissionPages/SchoolSubmission';
 import InputSubmissionFromReviewsPage from "./pages/SubmissionPages/InputSubmissionFromReviewsPage";
-<<<<<<< HEAD
 import { Auth } from './components/authentication';
-=======
-import ReactGA from 'react-ga';
 
-const TRACKING_ID = "G-XYRLB5S0DG"; // YOUR_OWN_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
->>>>>>> 9b8b1792fb132f9d3f08809675ffca73366689d7
 
 function App() {
   return (

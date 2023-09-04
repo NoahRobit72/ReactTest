@@ -34,9 +34,7 @@ function LabsPage() {
       <h3>{lab.Name}</h3>
       <p><strong>Lab Field:</strong> {lab.Field}</p> {/* Display Lab Field category */}
       <p><strong>Professor:</strong> {lab.Professor}</p> {/* Display Professor category */}
-      <Link to={{pathname: "/blank", state: selectedOption // your data array of objects
-  }}
-></Link>
+      <Link to={{pathname: "/blank", state: selectedOption }}></Link>
     </Link>
     </div>
   ))
